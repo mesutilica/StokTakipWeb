@@ -1,0 +1,7 @@
+﻿body {
+}
+#menu li{/*html elemanlarından ıd si menu olan elemanı seç*/
+      display:inline;
+      padding-left: 18px;
+      padding-right: 18px;
+}

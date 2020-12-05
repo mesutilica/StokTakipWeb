@@ -1,0 +1,23 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="SiteSablon.master.cs" Inherits="StokTakipWeb.SiteSablon" %>
+
+<%@ Register Src="Bloklar/UstMenu.ascx" TagName="UstMenu" TagPrefix="uc1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <link href="Site.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <uc1:UstMenu ID="UstMenu1" runat="server" />
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+
+        </div>
+    </form>
+</body>
+</html>
