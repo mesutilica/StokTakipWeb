@@ -1,11 +1,10 @@
-﻿namespace StokTakip.DAL.Migrations
-{
-    using System;
-    using System.Data.Entity;
-    using System.Data.Entity.Migrations;
-    using System.Linq;
+﻿using StokTakip.Entities;
+using System.Data.Entity.Migrations;
+using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<StokTakip.DAL.DatabaseContext>
+namespace StokTakip.DAL.Migrations
+{
+    internal sealed class Configuration : DbMigrationsConfiguration<DatabaseContext>
     {
         public Configuration()
         {
@@ -13,12 +12,22 @@
             AutomaticMigrationDataLossAllowed = true;
         }
 
-        protected override void Seed(StokTakip.DAL.DatabaseContext context)
+        protected override void Seed(DatabaseContext context)
         {
-            //  This method will be called after migrating to the latest version.
-
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method
-            //  to avoid creating duplicate seed data.
+            if (context.Kullanicilar.FirstOrDefault() == null)//entity framework linq kullanarak context.Kullanici.FirstOrDefault() koduyla veritabanındaki kullanıcı tablosunda her hangi bir kayıt var mı diye kontrol ettik eğer kayıt yoksa aşağıdaki kullanıcıyı veritabanına ekleyecek
+            {
+                context.Kullanicilar.Add(new Kullanici()
+                {
+                    Adi = "Admin",
+                    Aktif = true,
+                    Email = "admin@stoktakipweb.com",
+                    KullaniciAdi = "admin",
+                    KullaniciSifre = "123456"
+                }
+                );
+                context.SaveChanges();//veritabanındaki değişiklikleri(yani kullanıcı ekleme işlemini) kaydet
+            }
+            base.Seed(context);
         }
     }
 }

@@ -14,6 +14,9 @@
                         <asp:BoundField DataField="Id" HeaderText="Id" InsertVisible="False" ReadOnly="True" SortExpression="Id" />
                         <asp:BoundField DataField="KategoriAdi" HeaderText="KategoriAdi" SortExpression="KategoriAdi" />
                         <asp:BoundField DataField="KategoriAciklamasi" HeaderText="KategoriAciklamasi" SortExpression="KategoriAciklamasi" />
+                        <asp:BoundField DataField="EklenmeTarihi" HeaderText="EklenmeTarihi" SortExpression="EklenmeTarihi" />
+                        <asp:CheckBoxField DataField="Aktif" HeaderText="Aktif" SortExpression="Aktif" />
+                        <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ShowSelectButton="True" />
                     </Columns>
                     <EditRowStyle BackColor="#999999" />
                     <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
@@ -42,9 +45,23 @@
                             <asp:TextBox ID="txtKategoriAciklamasi" runat="server"></asp:TextBox></td>
                     </tr>
                     <tr>
-                        <td></td>
+                        <td>&nbsp;</td>
+                        <td>
+                            <asp:CheckBox ID="cbAktif" runat="server" Text="Aktif/Pasif" />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>&nbsp;</td>
                         <td>
                             <asp:Button ID="btnEkle" runat="server" Text="Ekle" OnClick="btnEkle_Click" />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>
+                            <asp:Label ID="lblSonuc" runat="server"></asp:Label>
                         </td>
                     </tr>
 
@@ -54,18 +71,22 @@
     </table>
     
 
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:StokTakip %>" DeleteCommand="DELETE FROM [Kategoriler] WHERE [Id] = @Id" InsertCommand="INSERT INTO [Kategoriler] ([KategoriAdi], [KategoriAciklamasi]) VALUES (@KategoriAdi, @KategoriAciklamasi)" SelectCommand="SELECT * FROM [Kategoriler]" UpdateCommand="UPDATE [Kategoriler] SET [KategoriAdi] = @KategoriAdi, [KategoriAciklamasi] = @KategoriAciklamasi WHERE [Id] = @Id">
-                    <DeleteParameters>
-                        <asp:Parameter Name="Id" Type="Int32" />
-                    </DeleteParameters>
-                    <InsertParameters>
-                        <asp:Parameter Name="KategoriAdi" Type="String" />
-                        <asp:Parameter Name="KategoriAciklamasi" Type="String" />
-                    </InsertParameters>
-                    <UpdateParameters>
-                        <asp:Parameter Name="KategoriAdi" Type="String" />
-                        <asp:Parameter Name="KategoriAciklamasi" Type="String" />
-                        <asp:Parameter Name="Id" Type="Int32" />
-                    </UpdateParameters>
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseContext %>" DeleteCommand="DELETE FROM [Kategori] WHERE [Id] = @original_Id" InsertCommand="INSERT INTO [Kategori] ([KategoriAdi], [KategoriAciklamasi], [EklenmeTarihi], [Aktif]) VALUES (@KategoriAdi, @KategoriAciklamasi, @EklenmeTarihi, @Aktif)" SelectCommand="SELECT * FROM [Kategori]" UpdateCommand="UPDATE [Kategori] SET [KategoriAdi] = @KategoriAdi, [KategoriAciklamasi] = @KategoriAciklamasi, [EklenmeTarihi] = @EklenmeTarihi, [Aktif] = @Aktif WHERE [Id] = @original_Id" OldValuesParameterFormatString="original_{0}">
+        <DeleteParameters>
+            <asp:Parameter Name="original_Id" Type="Int32" />
+        </DeleteParameters>
+        <InsertParameters>
+            <asp:Parameter Name="KategoriAdi" Type="String" />
+            <asp:Parameter Name="KategoriAciklamasi" Type="String" />
+            <asp:Parameter Name="EklenmeTarihi" Type="DateTime" />
+            <asp:Parameter Name="Aktif" Type="Boolean" />
+        </InsertParameters>
+        <UpdateParameters>
+            <asp:Parameter Name="KategoriAdi" Type="String" />
+            <asp:Parameter Name="KategoriAciklamasi" Type="String" />
+            <asp:Parameter Name="EklenmeTarihi" Type="DateTime" />
+            <asp:Parameter Name="Aktif" Type="Boolean" />
+            <asp:Parameter Name="original_Id" Type="Int32" />
+        </UpdateParameters>
                 </asp:SqlDataSource>
 </asp:Content>

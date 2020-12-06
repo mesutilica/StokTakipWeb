@@ -166,6 +166,16 @@
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\StokTakip.BL\StokTakip.BL.csproj">
+      <Project>{5af9083f-7437-4f2b-905b-3dd52a3c166c}</Project>
+      <Name>StokTakip.BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StokTakip.Entities\StokTakip.Entities.csproj">
+      <Project>{ede95e6d-65e3-46b9-9a7e-48b5edbec329}</Project>
+      <Name>StokTakip.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -181,7 +191,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>49690</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:49690/</IISUrl>
+          <IISUrl>http://localhost:48690/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

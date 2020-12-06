@@ -42,6 +42,15 @@ namespace StokTakipWeb
         protected global::System.Web.UI.WebControls.TextBox txtKategoriAciklamasi;
 
         /// <summary>
+        /// cbAktif control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox cbAktif;
+
+        /// <summary>
         /// btnEkle control.
         /// </summary>
         /// <remarks>
@@ -49,6 +58,15 @@ namespace StokTakipWeb
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnEkle;
+
+        /// <summary>
+        /// lblSonuc control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSonuc;
 
         /// <summary>
         /// SqlDataSource1 control.

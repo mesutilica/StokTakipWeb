@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using StokTakip.Entities;
 
 namespace StokTakip.BL
 {
-    public class KategoriManager
+    public class KategoriManager : Repository<Kategori>
     {
     }
 }

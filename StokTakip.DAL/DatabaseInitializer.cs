@@ -9,9 +9,9 @@ namespace StokTakip.DAL
     {
         protected override void Seed(DatabaseContext context)//Seed metodu parametre olarak aldığı DatabaseContext context elemanınını kullanarak veritabanı oluştuktan sonra işlem yapmamızı sağlar
         {
-            if (context.Kullanici.FirstOrDefault() == null)//entity framework linq kullanarak context.Kullanici.FirstOrDefault() koduyla veritabanındaki kullanıcı tablosunda her hangi bir kayıt var mı diye kontrol ettik eğer kayıt yoksa aşağıdaki kullanıcıyı veritabanına ekleyecek
+            if (context.Kullanicilar.FirstOrDefault() == null)//entity framework linq kullanarak context.Kullanici.FirstOrDefault() koduyla veritabanındaki kullanıcı tablosunda her hangi bir kayıt var mı diye kontrol ettik eğer kayıt yoksa aşağıdaki kullanıcıyı veritabanına ekleyecek
             {
-                context.Kullanici.Add(new Kullanici()
+                context.Kullanicilar.Add(new Kullanici()
                 {
                     Adi = "Admin",
                     Aktif = true,
