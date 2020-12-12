@@ -4,6 +4,9 @@
         .auto-style1 {
             width: 100%;
         }
+        .auto-style2 {
+            height: 26px;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -61,8 +64,8 @@
             </td>
         </tr>
         <tr>
-            <td>Şifre</td>
-            <td>
+            <td class="auto-style2">Şifre</td>
+            <td class="auto-style2">
                 <asp:TextBox ID="txtSifre" runat="server"></asp:TextBox>
             </td>
         </tr>
