@@ -25,6 +25,8 @@
             <asp:BoundField DataField="Kdv" HeaderText="Kdv" SortExpression="Kdv" />
             <asp:BoundField DataField="StokMiktari" HeaderText="StokMiktari" SortExpression="StokMiktari" />
             <asp:CheckBoxField DataField="Aktif" HeaderText="Aktif" SortExpression="Aktif" />
+            <asp:ImageField DataImageUrlField="Resim" DataImageUrlFormatString="~\Uploads\{0}" ControlStyle-Height="50" HeaderText="Resim" />
+            <asp:BoundField DataField="Resim" />
             <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ShowSelectButton="True" />
         </Columns>
         <EditRowStyle BackColor="#999999" />
@@ -116,6 +118,7 @@
             <td>Ürün Resmi</td>
             <td>
                 <asp:FileUpload ID="fuResim" runat="server" />
+                <asp:Image ID="ImgResim" runat="server" Height="75" />
             </td>
         </tr>
         <tr>

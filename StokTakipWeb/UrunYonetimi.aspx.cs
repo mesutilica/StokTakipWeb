@@ -41,6 +41,11 @@ namespace StokTakipWeb
                     UrunAdi = txtUrunAdi.Text,
                     UrunFiyati = Convert.ToDecimal(txtUrunFiyati.Text)
                 };
+                if (fuResim.HasFile)//Eğer resim yükleme elemanından bir resim seçilmişse
+                {
+                    fuResim.SaveAs(Server.MapPath("~/Uploads/" + fuResim.FileName));//furesimden seçilen resmi sunucudaki uploads klasörüne kaydet
+                    urun.Resim = fuResim.FileName;
+                }
                 if (string.IsNullOrWhiteSpace(lblId.Text)) um.Add(urun);
                 else 
                 {
@@ -68,6 +73,7 @@ namespace StokTakipWeb
                 txtKdv.Text = satir.Cells[8].Text;
                 txtStokMiktari.Text = satir.Cells[9].Text;
                 lblId.Text = satir.Cells[1].Text;
+                ImgResim.ImageUrl = "~/Uploads/" + satir.Cells[12].Text;
                 btnKaydet.Text = "Güncelle";
             }
             catch (Exception)
