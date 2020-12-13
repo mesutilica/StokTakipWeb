@@ -14,6 +14,6 @@ namespace StokTakip.Entities
         public int Kdv { get; set; }
         public int StokMiktari { get; set; }
         public bool Aktif { get; set; }
-        //public string Resim { get; set; }
+        public string Resim { get; set; }
     }
 }

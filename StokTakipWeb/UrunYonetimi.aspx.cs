@@ -60,14 +60,14 @@ namespace StokTakipWeb
             try
             {
                 var satir = GridView1.SelectedRow;
-                ddlUrunKategorisi.SelectedValue = satir.Cells[1].Text;
-                ddlUrunMarkasi.SelectedValue = satir.Cells[2].Text;
-                txtUrunAdi.Text = HttpUtility.HtmlDecode(satir.Cells[3].Text);
-                txtUrunAciklamasi.Text = HttpUtility.HtmlDecode(satir.Cells[4].Text);
-                txtUrunFiyati.Text = satir.Cells[6].Text;
-                txtKdv.Text = satir.Cells[7].Text;
-                txtStokMiktari.Text = satir.Cells[8].Text;
-                lblId.Text = satir.Cells[0].Text;
+                ddlUrunKategorisi.SelectedValue = satir.Cells[2].Text;
+                ddlUrunMarkasi.SelectedValue = satir.Cells[3].Text;
+                txtUrunAdi.Text = HttpUtility.HtmlDecode(satir.Cells[4].Text);
+                txtUrunAciklamasi.Text = HttpUtility.HtmlDecode(satir.Cells[5].Text);
+                txtUrunFiyati.Text = satir.Cells[7].Text;
+                txtKdv.Text = satir.Cells[8].Text;
+                txtStokMiktari.Text = satir.Cells[9].Text;
+                lblId.Text = satir.Cells[1].Text;
                 btnKaydet.Text = "Güncelle";
             }
             catch (Exception)
