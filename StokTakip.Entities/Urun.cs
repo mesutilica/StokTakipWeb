@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace StokTakip.Entities
 {
@@ -18,5 +14,6 @@ namespace StokTakip.Entities
         public int Kdv { get; set; }
         public int StokMiktari { get; set; }
         public bool Aktif { get; set; }
+        //public string Resim { get; set; }
     }
 }

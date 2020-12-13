@@ -29,25 +29,50 @@ namespace StokTakipWeb
         {
             try
             {
-                um.Add(
-                       new Urun
-                       {
-                           Aktif = cbAktif.Checked,
-                           EklenmeTarihi = DateTime.Now,
-                           KategoriId = Convert.ToInt32(ddlUrunKategorisi.SelectedValue),
-                           MarkaId = Convert.ToInt32(ddlUrunMarkasi.SelectedValue),
-                           Kdv = Convert.ToInt32(txtKdv.Text),
-                           StokMiktari = Convert.ToInt32(txtStokMiktari.Text),
-                           UrunAciklamasi = txtUrunAciklamasi.Text,
-                           UrunAdi = txtUrunAdi.Text,
-                           UrunFiyati = Convert.ToDecimal(txtKdv.Text)
-                       }
-                      );
+                var urun = new Urun
+                {
+                    Aktif = cbAktif.Checked,
+                    EklenmeTarihi = DateTime.Now,
+                    KategoriId = Convert.ToInt32(ddlUrunKategorisi.SelectedValue),
+                    MarkaId = Convert.ToInt32(ddlUrunMarkasi.SelectedValue),
+                    Kdv = Convert.ToInt32(txtKdv.Text),
+                    StokMiktari = Convert.ToInt32(txtStokMiktari.Text),
+                    UrunAciklamasi = txtUrunAciklamasi.Text,
+                    UrunAdi = txtUrunAdi.Text,
+                    UrunFiyati = Convert.ToDecimal(txtUrunFiyati.Text)
+                };
+                if (string.IsNullOrWhiteSpace(lblId.Text)) um.Add(urun);
+                else 
+                {
+                    urun.Id = int.Parse(lblId.Text);
+                    um.Update(urun);
+                }
                 Response.Redirect("UrunYonetimi.aspx");
             }
             catch (Exception)
             {
                 Response.Write("Hata Oluştu!");
+            }
+        }
+
+        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                var satir = GridView1.SelectedRow;
+                ddlUrunKategorisi.SelectedValue = satir.Cells[1].Text;
+                ddlUrunMarkasi.SelectedValue = satir.Cells[2].Text;
+                txtUrunAdi.Text = HttpUtility.HtmlDecode(satir.Cells[3].Text);
+                txtUrunAciklamasi.Text = HttpUtility.HtmlDecode(satir.Cells[4].Text);
+                txtUrunFiyati.Text = satir.Cells[6].Text;
+                txtKdv.Text = satir.Cells[7].Text;
+                txtStokMiktari.Text = satir.Cells[8].Text;
+                lblId.Text = satir.Cells[0].Text;
+                btnKaydet.Text = "Güncelle";
+            }
+            catch (Exception)
+            {
+                lblMesaj.Text = "Hata Oluştu!";
             }
         }
     }

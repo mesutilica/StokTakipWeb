@@ -96,6 +96,15 @@ namespace StokTakipWeb
         protected global::System.Web.UI.WebControls.TextBox txtStokMiktari;
 
         /// <summary>
+        /// fuResim control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload fuResim;
+
+        /// <summary>
         /// cbAktif control.
         /// </summary>
         /// <remarks>
@@ -105,6 +114,15 @@ namespace StokTakipWeb
         protected global::System.Web.UI.WebControls.CheckBox cbAktif;
 
         /// <summary>
+        /// lblMesaj control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMesaj;
+
+        /// <summary>
         /// btnKaydet control.
         /// </summary>
         /// <remarks>
@@ -112,5 +130,14 @@ namespace StokTakipWeb
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnKaydet;
+
+        /// <summary>
+        /// lblId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblId;
     }
 }

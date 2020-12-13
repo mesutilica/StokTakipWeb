@@ -7,9 +7,14 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="Id" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None">
+    <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="Id" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
         <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
         <Columns>
+            <asp:TemplateField>
+                <ItemTemplate>
+                    <asp:CheckBox ID="cbSil" runat="server" />
+                </ItemTemplate>
+            </asp:TemplateField>
             <asp:BoundField DataField="Id" HeaderText="Id" InsertVisible="False" ReadOnly="True" SortExpression="Id" />
             <asp:BoundField DataField="KategoriId" HeaderText="KategoriId" SortExpression="KategoriId" />
             <asp:BoundField DataField="MarkaId" HeaderText="MarkaId" SortExpression="MarkaId" />
@@ -66,14 +71,14 @@
         <tr>
             <td>Ürün Kategorisi</td>
             <td>
-                <asp:DropDownList ID="ddlUrunKategorisi" runat="server">
+                <asp:DropDownList ID="ddlUrunKategorisi" runat="server" DataTextField="KategoriAdi" DataValueField="Id">
                 </asp:DropDownList>
             </td>
         </tr>
         <tr>
             <td>Ürün Markası</td>
             <td>
-                <asp:DropDownList ID="ddlUrunMarkasi" runat="server">
+                <asp:DropDownList ID="ddlUrunMarkasi" runat="server" DataTextField="MarkaAdi" DataValueField="Id">
                 </asp:DropDownList>
             </td>
         </tr>
@@ -108,15 +113,24 @@
             </td>
         </tr>
         <tr>
+            <td>Ürün Resmi</td>
+            <td>
+                <asp:FileUpload ID="fuResim" runat="server" />
+            </td>
+        </tr>
+        <tr>
             <td>&nbsp;</td>
             <td>
                 <asp:CheckBox ID="cbAktif" runat="server" Checked="True" Text="Aktif" />
             </td>
         </tr>
         <tr>
-            <td>&nbsp;</td>
+            <td>
+                <asp:Label ID="lblMesaj" runat="server"></asp:Label>
+            </td>
             <td>
                 <asp:Button ID="btnKaydet" runat="server" OnClick="btnKaydet_Click" Text="Ekle" />
+                <asp:Label ID="lblId" runat="server"></asp:Label>
             </td>
         </tr>
     </table>
