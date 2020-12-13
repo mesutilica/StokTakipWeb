@@ -75,6 +75,7 @@ namespace StokTakipWeb
                 lblId.Text = satir.Cells[1].Text;
                 ImgResim.ImageUrl = "~/Uploads/" + satir.Cells[12].Text;
                 btnKaydet.Text = "Güncelle";
+                TabContainer1.ActiveTabIndex = 1;
             }
             catch (Exception)
             {

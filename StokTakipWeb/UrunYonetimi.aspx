@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SiteSablon.Master" AutoEventWireup="true" CodeBehind="UrunYonetimi.aspx.cs" Inherits="StokTakipWeb.UrunYonetimi" %>
+<%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="ajaxToolkit" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
         .auto-style1 {
@@ -7,7 +8,11 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="Id" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+   
+    <ajaxToolkit:TabContainer ID="TabContainer1" runat="server" ActiveTabIndex="0">
+        <ajaxToolkit:TabPanel runat="server" HeaderText="Ürünler" ID="TabPanel1">
+            <ContentTemplate>
+ <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="Id" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
         <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
         <Columns>
             <asp:TemplateField>
@@ -68,8 +73,11 @@
             <asp:Parameter Name="Id" Type="Int32" />
         </UpdateParameters>
     </asp:SqlDataSource>
-    <br />
-    <table class="auto-style1">
+            </ContentTemplate>
+        </ajaxToolkit:TabPanel>
+        <ajaxToolkit:TabPanel runat="server" HeaderText="Yeni Ekle" ID="TabPanel2">
+            <ContentTemplate>
+                <table class="auto-style1">
         <tr>
             <td>Ürün Kategorisi</td>
             <td>
@@ -137,4 +145,8 @@
             </td>
         </tr>
     </table>
+            </ContentTemplate>
+        </ajaxToolkit:TabPanel>
+    </ajaxToolkit:TabContainer>
+    <br />
 </asp:Content>

@@ -11,52 +11,52 @@ namespace StokTakipWeb
 {
 
 
-    public partial class SiteSablon
+    public partial class SiparisYonetimi
     {
 
         /// <summary>
-        /// head control.
+        /// GridView1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
+        protected global::System.Web.UI.WebControls.GridView GridView1;
 
         /// <summary>
-        /// form1 control.
+        /// SqlDataSource1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
 
         /// <summary>
-        /// ScriptManager1 control.
+        /// TabContainer1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.ScriptManager ScriptManager1;
+        protected global::AjaxControlToolkit.TabContainer TabContainer1;
 
         /// <summary>
-        /// UstMenu1 control.
+        /// TabPanel1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::StokTakipWeb.Bloklar.UstMenu UstMenu1;
+        protected global::AjaxControlToolkit.TabPanel TabPanel1;
 
         /// <summary>
-        /// ContentPlaceHolder1 control.
+        /// TabPanel2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder1;
+        protected global::AjaxControlToolkit.TabPanel TabPanel2;
     }
 }

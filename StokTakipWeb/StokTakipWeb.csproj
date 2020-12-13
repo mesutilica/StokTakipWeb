@@ -43,6 +43,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=20.1.0.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <HintPath>..\packages\AjaxControlToolkit.20.1.0\lib\net40\AjaxControlToolkit.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -78,6 +81,7 @@
     <Content Include="KategoriYonetimi.aspx" />
     <Content Include="KullaniciYonetimi.aspx" />
     <Content Include="MarkaYonetimi.aspx" />
+    <Content Include="SiparisYonetimi.aspx" />
     <Content Include="Site.css" />
     <Content Include="UrunYonetimi.aspx" />
     <Content Include="Web.config" />
@@ -130,6 +134,13 @@
       <DependentUpon>MarkaYonetimi.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SiparisYonetimi.aspx.cs">
+      <DependentUpon>SiparisYonetimi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SiparisYonetimi.aspx.designer.cs">
+      <DependentUpon>SiparisYonetimi.aspx</DependentUpon>
+    </Compile>
     <Compile Include="SiteSablon.Master.cs">
       <DependentUpon>SiteSablon.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

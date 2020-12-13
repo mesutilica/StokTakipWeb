@@ -51,7 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GirisManager.cs" />
+    <Compile Include="SiparisManager.cs" />
     <Compile Include="KategoriManager.cs" />
     <Compile Include="KullaniciManager.cs" />
     <Compile Include="MarkaManager.cs" />
