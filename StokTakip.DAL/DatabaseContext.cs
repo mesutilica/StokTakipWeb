@@ -10,6 +10,7 @@ namespace StokTakip.DAL
         public DbSet<Kategori> Kategoriler { get; set; }
         public DbSet<Kullanici> Kullanicilar { get; set; }
         public DbSet<Marka> Markalar { get; set; }
+        public DbSet<Siparis> Siparis { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();//veritabanı tablolarındaki s takısını kaldırmak için

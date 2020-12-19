@@ -1,13 +1,33 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SiteSablon.Master" AutoEventWireup="true" CodeBehind="KategoriYonetimi.aspx.cs" Inherits="StokTakipWeb.KategoriYonetimi" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %> 
+<%--Sayfada ajax control toolkit kontrollerini kullanabilmek için yukardaki kod satırını eklememiz gerekiyor, bu kod ile artık sayfada ajax kontrollerini kullanabiliriz--%>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>Kategori Yönetimi</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <table>
-        <tr>
-            <td>
-                <h2>Kategoriler</h2>
+    
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseContext %>" DeleteCommand="DELETE FROM [Kategori] WHERE [Id] = @original_Id" InsertCommand="INSERT INTO [Kategori] ([KategoriAdi], [KategoriAciklamasi], [EklenmeTarihi], [Aktif]) VALUES (@KategoriAdi, @KategoriAciklamasi, @EklenmeTarihi, @Aktif)" SelectCommand="SELECT * FROM [Kategori]" UpdateCommand="UPDATE [Kategori] SET [KategoriAdi] = @KategoriAdi, [KategoriAciklamasi] = @KategoriAciklamasi, [EklenmeTarihi] = @EklenmeTarihi, [Aktif] = @Aktif WHERE [Id] = @original_Id" OldValuesParameterFormatString="original_{0}">
+        <DeleteParameters>
+            <asp:Parameter Name="original_Id" Type="Int32" />
+        </DeleteParameters>
+        <InsertParameters>
+            <asp:Parameter Name="KategoriAdi" Type="String" />
+            <asp:Parameter Name="KategoriAciklamasi" Type="String" />
+            <asp:Parameter Name="EklenmeTarihi" Type="DateTime" />
+            <asp:Parameter Name="Aktif" Type="Boolean" />
+        </InsertParameters>
+        <UpdateParameters>
+            <asp:Parameter Name="KategoriAdi" Type="String" />
+            <asp:Parameter Name="KategoriAciklamasi" Type="String" />
+            <asp:Parameter Name="EklenmeTarihi" Type="DateTime" />
+            <asp:Parameter Name="Aktif" Type="Boolean" />
+            <asp:Parameter Name="original_Id" Type="Int32" />
+        </UpdateParameters>
+                </asp:SqlDataSource>
+    <ajaxToolkit:TabContainer ID="TabContainer1" runat="server" ActiveTabIndex="0">
+        <ajaxToolkit:TabPanel runat="server" HeaderText="Kategoriler" ID="TabPanel1">
+            <ContentTemplate>
                 <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Id" DataSourceID="SqlDataSource1" AllowPaging="True" AllowSorting="True" CellPadding="4" ForeColor="#333333" GridLines="None">
                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                     <Columns>
@@ -29,10 +49,10 @@
                     <SortedDescendingCellStyle BackColor="#FFFDF8" />
                     <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
                 </asp:GridView>
-                
-            </td>
-            <td>
-                <h2>Yeni Kategori Ekle</h2>
+            </ContentTemplate>
+        </ajaxToolkit:TabPanel>
+        <ajaxToolkit:TabPanel ID="TabPanel2" runat="server" HeaderText="Kategori Ekle / Düzenle">
+            <ContentTemplate>
                 <table>
                     <tr>
                         <td>Kategori Adı</td>
@@ -66,27 +86,7 @@
                     </tr>
 
                 </table>
-            </td>
-        </tr>
-    </table>
-    
-
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseContext %>" DeleteCommand="DELETE FROM [Kategori] WHERE [Id] = @original_Id" InsertCommand="INSERT INTO [Kategori] ([KategoriAdi], [KategoriAciklamasi], [EklenmeTarihi], [Aktif]) VALUES (@KategoriAdi, @KategoriAciklamasi, @EklenmeTarihi, @Aktif)" SelectCommand="SELECT * FROM [Kategori]" UpdateCommand="UPDATE [Kategori] SET [KategoriAdi] = @KategoriAdi, [KategoriAciklamasi] = @KategoriAciklamasi, [EklenmeTarihi] = @EklenmeTarihi, [Aktif] = @Aktif WHERE [Id] = @original_Id" OldValuesParameterFormatString="original_{0}">
-        <DeleteParameters>
-            <asp:Parameter Name="original_Id" Type="Int32" />
-        </DeleteParameters>
-        <InsertParameters>
-            <asp:Parameter Name="KategoriAdi" Type="String" />
-            <asp:Parameter Name="KategoriAciklamasi" Type="String" />
-            <asp:Parameter Name="EklenmeTarihi" Type="DateTime" />
-            <asp:Parameter Name="Aktif" Type="Boolean" />
-        </InsertParameters>
-        <UpdateParameters>
-            <asp:Parameter Name="KategoriAdi" Type="String" />
-            <asp:Parameter Name="KategoriAciklamasi" Type="String" />
-            <asp:Parameter Name="EklenmeTarihi" Type="DateTime" />
-            <asp:Parameter Name="Aktif" Type="Boolean" />
-            <asp:Parameter Name="original_Id" Type="Int32" />
-        </UpdateParameters>
-                </asp:SqlDataSource>
+            </ContentTemplate>
+        </ajaxToolkit:TabPanel>
+    </ajaxToolkit:TabContainer>
 </asp:Content>

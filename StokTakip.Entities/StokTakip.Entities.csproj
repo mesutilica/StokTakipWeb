@@ -46,6 +46,7 @@
     <Compile Include="Kullanici.cs" />
     <Compile Include="Marka.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Siparis.cs" />
     <Compile Include="Urun.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
