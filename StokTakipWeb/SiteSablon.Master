@@ -2,6 +2,8 @@
 
 <%@ Register Src="Bloklar/UstMenu.ascx" TagName="UstMenu" TagPrefix="uc1" %>
 
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
+
 <!DOCTYPE html>
 
 <html>

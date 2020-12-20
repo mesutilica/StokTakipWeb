@@ -81,6 +81,7 @@
     <Content Include="KategoriYonetimi.aspx" />
     <Content Include="KullaniciYonetimi.aspx" />
     <Content Include="MarkaYonetimi.aspx" />
+    <Content Include="SiparisYonetimi.aspx" />
     <Content Include="Site.css" />
     <Content Include="UrunYonetimi.aspx" />
     <Content Include="Web.config" />
@@ -133,6 +134,13 @@
       <DependentUpon>MarkaYonetimi.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SiparisYonetimi.aspx.cs">
+      <DependentUpon>SiparisYonetimi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SiparisYonetimi.aspx.designer.cs">
+      <DependentUpon>SiparisYonetimi.aspx</DependentUpon>
+    </Compile>
     <Compile Include="SiteSablon.Master.cs">
       <DependentUpon>SiteSablon.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
