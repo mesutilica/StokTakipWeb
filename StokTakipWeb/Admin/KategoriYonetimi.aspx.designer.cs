@@ -11,8 +11,17 @@ namespace StokTakipWeb
 {
 
 
-    public partial class MarkaYonetimi
+    public partial class KategoriYonetimi
     {
+
+        /// <summary>
+        /// SqlDataSource1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
 
         /// <summary>
         /// TabContainer1 control.
@@ -51,22 +60,40 @@ namespace StokTakipWeb
         protected global::AjaxControlToolkit.TabPanel TabPanel2;
 
         /// <summary>
-        /// txtMarkaAdi control.
+        /// txtKategoriAdi control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtMarkaAdi;
+        protected global::System.Web.UI.WebControls.TextBox txtKategoriAdi;
 
         /// <summary>
-        /// txtMarkaAciklamasi control.
+        /// RequiredFieldValidator1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtMarkaAciklamasi;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+
+        /// <summary>
+        /// txtKategoriAciklamasi control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtKategoriAciklamasi;
+
+        /// <summary>
+        /// RequiredFieldValidator2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
 
         /// <summary>
         /// cbAktif control.
@@ -78,30 +105,21 @@ namespace StokTakipWeb
         protected global::System.Web.UI.WebControls.CheckBox cbAktif;
 
         /// <summary>
-        /// btnKaydet control.
+        /// btnEkle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnKaydet;
+        protected global::System.Web.UI.WebControls.Button btnEkle;
 
         /// <summary>
-        /// lblMesaj control.
+        /// lblSonuc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMesaj;
-
-        /// <summary>
-        /// SqlDataSource1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
+        protected global::System.Web.UI.WebControls.Label lblSonuc;
     }
 }

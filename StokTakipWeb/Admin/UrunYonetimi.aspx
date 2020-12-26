@@ -7,7 +7,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <ajaxToolkit:TabContainer ID="TabContainer1" runat="server" ActiveTabIndex="1">
+    <ajaxToolkit:TabContainer ID="TabContainer1" runat="server" ActiveTabIndex="0" Width="100%">
         <ajaxToolkit:TabPanel runat="server" HeaderText="Ürün Listesi" ID="TabPanel1">
             <ContentTemplate>
                 <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="Id" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
@@ -79,21 +79,26 @@
                     <tr>
                         <td>Ürün Kategorisi</td>
                         <td>
-                            <asp:DropDownList ID="ddlUrunKategorisi" runat="server" DataTextField="KategoriAdi" DataValueField="Id">
+                            <asp:DropDownList ID="ddlUrunKategorisi" runat="server" DataTextField="KategoriAdi" DataValueField="Id" AppendDataBoundItems="True">
+                                <asp:ListItem Selected="True">Seçiniz</asp:ListItem>
                             </asp:DropDownList>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="ddlUrunKategorisi" ErrorMessage="Kategori Seçiniz!" ForeColor="Red" InitialValue="Seçiniz"></asp:RequiredFieldValidator>
                         </td>
                     </tr>
                     <tr>
                         <td>Ürün Markası</td>
                         <td>
-                            <asp:DropDownList ID="ddlUrunMarkasi" runat="server" DataTextField="MarkaAdi" DataValueField="Id">
+                            <asp:DropDownList ID="ddlUrunMarkasi" runat="server" DataTextField="MarkaAdi" DataValueField="Id" AppendDataBoundItems="True">
+                                <asp:ListItem Selected="True" Value="0">Seçiniz</asp:ListItem>
                             </asp:DropDownList>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="ddlUrunMarkasi" ErrorMessage="Marka Seçiniz!" ForeColor="Red" InitialValue="0"></asp:RequiredFieldValidator>
                         </td>
                     </tr>
                     <tr>
                         <td>Ürün Adı</td>
                         <td>
                             <asp:TextBox ID="txtUrunAdi" runat="server"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtUrunAdi" ErrorMessage="Boş Geçilemez!" ForeColor="Red"></asp:RequiredFieldValidator>
                         </td>
                     </tr>
                     <tr>
@@ -106,25 +111,28 @@
                         <td>Ürün Fiyatı</td>
                         <td>
                             <asp:TextBox ID="txtUrunFiyati" runat="server"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtUrunFiyati" ErrorMessage="Boş Geçilemez!" ForeColor="Red"></asp:RequiredFieldValidator>
                         </td>
                     </tr>
                     <tr>
                         <td>Kdv</td>
                         <td>
                             <asp:TextBox ID="txtKdv" runat="server"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txtKdv" ErrorMessage="Boş Geçilemez!" ForeColor="Red"></asp:RequiredFieldValidator>
                         </td>
                     </tr>
                     <tr>
                         <td>Stok Miktarı</td>
                         <td>
                             <asp:TextBox ID="txtStokMiktari" runat="server"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="txtStokMiktari" ErrorMessage="Boş Geçilemez!" ForeColor="Red"></asp:RequiredFieldValidator>
                         </td>
                     </tr>
                     <tr>
                         <td>Ürün Resmi</td>
                         <td>
                             <asp:FileUpload ID="fuResim" runat="server" />
-                            <asp:Image ID="ImgResim" runat="server" Height="75" />
+                            <asp:Image ID="ImgResim" runat="server" Height="75px" />
                         </td>
                     </tr>
                     <tr>

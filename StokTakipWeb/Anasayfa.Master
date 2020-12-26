@@ -1,0 +1,28 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Anasayfa.master.cs" Inherits="StokTakipWeb.Anasayfa" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <link href="Site.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <ul id="menu">
+                <li><a href="/Kategori.aspx">Kategori</a></li>
+                <li><a href="/Marka.aspx">Marka</a></li>
+                <li><a href="/Urun.aspx">Ürün</a></li>
+                <li><a href="/Siparis.aspx">Sipariş</a></li>
+                <li><a href="/Kullanici.aspx">Kullanıcı</a></li>
+                <li><a href="#">Çıkış</a></li>
+            </ul>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>

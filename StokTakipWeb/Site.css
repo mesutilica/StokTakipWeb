@@ -1,9 +1,7 @@
 ﻿body {
 }
 
-ul#menu {
-    margin: 34px;
-}
+ul#menu { margin: 34px; text-align: center; }
 
 #menu li { /*html elemanlarından ıd si menu olan elemanı seç*/
     display: inline; /*display:inline kodu menüdeki elemanları yan yana dizmemizi sağlar*/

@@ -25,7 +25,7 @@
             <asp:Parameter Name="original_Id" Type="Int32" />
         </UpdateParameters>
                 </asp:SqlDataSource>
-    <ajaxToolkit:TabContainer ID="TabContainer1" runat="server" ActiveTabIndex="0">
+    <ajaxToolkit:TabContainer ID="TabContainer1" runat="server" ActiveTabIndex="0" Width="100%">
         <ajaxToolkit:TabPanel runat="server" HeaderText="Kategoriler" ID="TabPanel1">
             <ContentTemplate>
                 <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Id" DataSourceID="SqlDataSource1" AllowPaging="True" AllowSorting="True" CellPadding="4" ForeColor="#333333" GridLines="None">
@@ -57,12 +57,16 @@
                     <tr>
                         <td>Kategori Adı</td>
                         <td>
-                            <asp:TextBox ID="txtKategoriAdi" runat="server"></asp:TextBox></td>
+                            <asp:TextBox ID="txtKategoriAdi" runat="server"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Boş Geçilemez!" ForeColor="Red" ControlToValidate="txtKategoriAdi"></asp:RequiredFieldValidator>
+                        </td>
                     </tr>
                     <tr>
                         <td>Kategori Açıklaması</td>
                         <td>
-                            <asp:TextBox ID="txtKategoriAciklamasi" runat="server"></asp:TextBox></td>
+                            <asp:TextBox ID="txtKategoriAciklamasi" runat="server" TextMode="MultiLine"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Boş Geçilemez!" ForeColor="Red" ControlToValidate="txtKategoriAciklamasi"></asp:RequiredFieldValidator>
+                        </td>
                     </tr>
                     <tr>
                         <td>&nbsp;</td>
@@ -90,3 +94,5 @@
         </ajaxToolkit:TabPanel>
     </ajaxToolkit:TabContainer>
 </asp:Content>
+
+<%--'RequiredFieldValidator1' öğesinin ControlToValidate özelliği boş olamaz. hatası alırsak eğer ilgili RequiredFieldValidator kontrolüne gidip ControlToValidate özelliğine hangi textbox ı veya dropdownlist i kontrol edeceksek onun ıd sini vermeliyiz  --%>
