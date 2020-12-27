@@ -83,10 +83,11 @@
     <Content Include="Admin\KullaniciYonetimi.aspx" />
     <Content Include="Admin\MarkaYonetimi.aspx" />
     <Content Include="Admin\SiparisYonetimi.aspx" />
+    <Content Include="HtmlCss\HtmlDersleri.aspx" />
     <Content Include="Site.css" />
     <Content Include="Admin\UrunYonetimi.aspx" />
     <Content Include="Web.config" />
-    <Content Include="Admin\WebForm1.aspx" />
+    <Content Include="HtmlCss\WebForm1.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bloklar\UstMenu.ascx.cs">
@@ -148,6 +149,13 @@
     <Compile Include="Admin\MarkaYonetimi.aspx.designer.cs">
       <DependentUpon>MarkaYonetimi.aspx</DependentUpon>
     </Compile>
+    <Compile Include="HtmlCss\HtmlDersleri.aspx.cs">
+      <DependentUpon>HtmlDersleri.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HtmlCss\HtmlDersleri.aspx.designer.cs">
+      <DependentUpon>HtmlDersleri.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Admin\SiparisYonetimi.aspx.cs">
       <DependentUpon>SiparisYonetimi.aspx</DependentUpon>
@@ -170,11 +178,11 @@
     <Compile Include="Admin\UrunYonetimi.aspx.designer.cs">
       <DependentUpon>UrunYonetimi.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin\WebForm1.aspx.cs">
+    <Compile Include="HtmlCss\WebForm1.aspx.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Admin\WebForm1.aspx.designer.cs">
+    <Compile Include="HtmlCss\WebForm1.aspx.designer.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
