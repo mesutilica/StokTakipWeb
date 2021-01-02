@@ -83,6 +83,8 @@
     <Content Include="Admin\KullaniciYonetimi.aspx" />
     <Content Include="Admin\MarkaYonetimi.aspx" />
     <Content Include="Admin\SiparisYonetimi.aspx" />
+    <Content Include="HtmlCss\CssDersleri.aspx" />
+    <Content Include="HtmlCss\HariciCssDosyasi.css" />
     <Content Include="HtmlCss\HtmlDersleri.aspx" />
     <Content Include="Site.css" />
     <Content Include="Admin\UrunYonetimi.aspx" />
@@ -148,6 +150,13 @@
     </Compile>
     <Compile Include="Admin\MarkaYonetimi.aspx.designer.cs">
       <DependentUpon>MarkaYonetimi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HtmlCss\CssDersleri.aspx.cs">
+      <DependentUpon>CssDersleri.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HtmlCss\CssDersleri.aspx.designer.cs">
+      <DependentUpon>CssDersleri.aspx</DependentUpon>
     </Compile>
     <Compile Include="HtmlCss\HtmlDersleri.aspx.cs">
       <DependentUpon>HtmlDersleri.aspx</DependentUpon>
