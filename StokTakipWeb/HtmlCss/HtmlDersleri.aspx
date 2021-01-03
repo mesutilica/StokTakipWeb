@@ -8,6 +8,7 @@
 <head runat="server">
     <%-- head kodu html sayfalarında sayfada kullanacağımız css, javascript gibi ek dosya veya kodlarla beraber sayfamızın meta ayarlarının tutulduğu kod bloğudur. örneğin sayfa başlığını title koduyla burada tanımlarız ya da sayfanın yazı dilinin ayarını burada yaparız. --%>
     <title>Title tagları sayfamızın sekmede görünen başlığında yazacak olan metnin barındığı koddur</title>
+    <link href="HariciCssDosyasi.css" rel="stylesheet" />
 </head>
 <body>
     <%--<body></body> kodları sayfamızın görünen tasarımının yer aldığı kısımdır ve sayfamızın içeriklerine ait kodlar ve veriler bu alanda tanımlanır. Statik veya dinamik tüm içerikleri barındırır.--%>

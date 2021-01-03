@@ -3,3 +3,6 @@ body { font-size: 100%; }
 h1 { color: navy; font-size: xx-large; }
 /*Bu css in kullanıldığı sayfalardaki h1 lerin rengini buna ayarla*/
 h2 { color: orange }/*h2 lerin rengini turuncu yap*/
+p { color : pink }/*Css ile bir elementin yazı rengini değiştirmek için color özelliği kullanılır*/
+div { background-color : lightyellow; }
+/* Css ile bir elemente arkaplan rengi vermek için background-color özelliğini kullanabiliriz */

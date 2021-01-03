@@ -181,6 +181,161 @@
                 İnline css yazarak renk değişimi
             </p>
 
+            <h3>HTML öğesi için birden fazla stil belirtildiğinde hangi stil kullanılır?</h3>
+            <p>
+                1- Satır içi stili (html öğesi içinde h3 style="color: blue;" şeklinde yazarsak)
+                2- Dış ve iç stil sayfaları (baş bölümünde belirttiğim gibi css lerin sırasına göre)
+                3- Tarayıcı varsayılan (her tarayıcıcnın html elemanlarına uyguladığı varsayılan css özellikleri vardır)
+            </p>
+            <h4>Bu nedenle, satır içi stil en yüksek önceliğe sahiptir ve dış ve dahili stilleri ve tarayıcı varsayılanlarını geçersiz kılar.
+            </h4>
+
+            <h2>CSS Arka Plan Rengi</h2>
+
+            <p style="background-color: aquamarine;">Css ile bir elemente arkaplan rengi vermek için background-color özelliğini kullanabiliriz.</p>
+            <p>
+                <b>Kullanımı : </b>< p style="background-color: aquamarine; ">
+                <br />
+                Css dosyasında kullanımı :  div { background-color : lightgoldenrodyellow; }
+            </p>
+
+            <h2>CSS Metin Rengi</h2>
+
+            <p>
+                Css ile html elemanlarının içindeki Metnin rengini ayarlayabiliriz.
+                <br />
+                Css ile bir elementin yazı rengini değiştirmek için color özelliği kullanılır.
+                <br />
+                Harici Css dosyasında kullanımı : p { color : pink } şeklindedir.
+                <br />
+                inline olarak elemana yazımı ise şu şekilde : span style="color:Tomato;" 
+                <span style="color: Tomato;">Domates rengi yazı</span>
+            </p>
+
+            <h2>CSS Kenarlık Rengi (Border)</h2>
+
+            <p>
+                Css de html elemanlarına çerçeve belirleyebiliriz. Bunun için css in border özelliği kullanılır.
+            </p>
+
+            <h1 style="border: 2px solid Tomato;">Merhaba Dünya</h1>
+            <h1 style="border: 2px dashed DodgerBlue;">Merhaba</h1>
+            <h1 style="border: 2px dotted Violet;">dotted</h1>
+            <h1 style="border: 1px double pink;">double</h1>
+            <h1 style="border: 1px groove yellow;">groove</h1>
+
+            <p>
+                style="border:2px solid Tomato;" buradaki kodun anlamı şudur;
+                <br />
+                border(elemana çerçeve uygulayacağımızı belirttik): 2px(çerçeve kalınlığı) solid(düz çizgi) tomato(çerçevenin rengi)
+            </p>
+            <p>
+                Border özelliğinde solid(düz çizgi) dışında farklı çerçeve şekilleri de vardır bunlar;
+                <br />
+                dotted(noktalı çizgi), dashed, double, groove vb dir ve bunları tarayıcıda veya css sayfasında görerek deneyebiliriz.
+                <br />
+                Tarayıcıda öğeyi incele diyerek açılan panelden css kısmını değiştirerek farklı stilleri deneyebiliriz.
+            </p>
+
+            <h2>CSS Arka Planlar</h2>
+
+            <div>
+                <h3>CSS arka plan özellikleri öğeler için arka plan efektlerini tanımlamak için kullanılır. </h3>
+
+                <h4>Bu bölümlerde, aşağıdaki CSS arka plan özellikleri hakkında bilgi edineceksiniz: </h4>
+
+                arka plan rengi<br />
+                arka plan görüntüsü<br />
+                arka plan tekrarı<br />
+                arka plan eki<br />
+                arka plan konumu
+
+                <div style="background-color: green; opacity: 0.3;">
+                    Css de arkaplan rengine opacity ile saydamlık, şeffaflık ekleyebiliriz
+                    <br />
+                    Gerekli kod : background-color: green; opacity: 0.3;
+                </div>
+                <br />
+                <br />
+                <div style="background: rgba(0, 128, 0, 0.3)">
+                    Opaklık için bir diğer yöntem de style da renk kodu olarak Rgba kullanmaktır
+                    <br />
+                    Örnek : style="background: rgba(0, 128, 0, 0.3)"
+                    <br />
+                    Sondaki değer alfa dır opaklığı bu değer ayarlar
+                </div>
+
+                <div style="background-image: url('/Admin/Uploads/acer.jfif'); height: 474px">
+                    <h3>CSS arka plan görüntüsü</h3>
+
+                    <p>Css ile html elemanlarına arkaplan resimleri ekleyebiliriz</p>
+
+                    <p>
+                        Bunun için yazmamız gereken kod şudur : background-image: url("arkaplan.gif");
+                    </p>
+                </div>
+
+                <div style="background-image: url('/Admin/Uploads/acer.jfif'); background-repeat: no-repeat; background-position: center center; background-attachment: fixed; height: 574px">
+                    <h3>CSS Arka Plan Tekrarı</h3>
+
+                    <p>
+                        Varsayılan olarak, özellik görüntüyü hem yatay hem de dikey olarak yineler.
+                        <br />
+                        Bazı görüntüler yalnızca yatay veya dikey olarak tekrarlanmalıdır, yoksa yukardaki divdeki gibi bir görüntü çıkar.
+                        <br />
+                        Bunu engellemek için şu kodu kullanmalıyız : background-repeat: repeat-x; arkaplan resmini x ekseninde tekrar eder
+                        <br />
+                        background-repeat: repeat-y; bu kod ise arkaplan resmini y ekseninde tekrarlar.
+                        <br />
+                        Arkaplan tekrarını engellemek için gerekli kod : background-repeat: no-repeat;
+                    </p>
+
+                    <h3>CSS arka plan pozisyonu</h3>
+
+                    <p>
+                        Özellik, arka plan görüntüsünün konumunu belirtmek için kullanılır.
+                        <br />
+                        Arkaplan resminin pozisyonunu ayarlamak için gerekli kod : background-position: right top;
+                        <br />
+                        Arka plan görüntüsünü sağ üst köşede konumlandırırız bu kodla.
+                    </p>
+
+                    <h3>CSS arka plan sabitleme</h3>
+
+                    <p>
+                        Özellik, arka plan görüntüsünün kaydırılması mı yoksa sabit mi olması gerektiğini belirtir (sayfanın geri kalanıyla birlikte kaydırmaz). Eğer sayfa aşağı kaydırıldığında resmin sabit kalmasını istersek şu kodu eklemeliyiz : background-attachment: fixed;
+                    </p>
+
+                    <div style="background: #ffffff url('/Admin/Uploads/acer.jfif') no-repeat fixed center bottom; height: 600px;">
+                        <h3>CSS arka plan - Steno özelliği</h3>
+
+                        <p>
+                            Kodu kısaltmak için, tüm arka plan özelliklerini tek bir özellikte belirtmek de mümkündür. Buna steno özelliği denir.
+                        </p>
+
+                        <p>
+                            Normalde eklemiş olduğumuz şu kodları ;
+                            <br />
+                            <br />
+                            style="background-image: url('/Admin/Uploads/acer.jfif'); background-repeat: no-repeat; background-position: center center; background-attachment: fixed;"
+                            <br />
+                            <br />
+                            Şu şekilde de yazabiliriz;
+                            <br />
+                            <br />
+                            background: #ffffff url("/Admin/Uploads/acer.jfif") no-repeat center top;
+                            <br />
+                            Bu şekilde sadece background kodu tanımlayarak diğer özellikleri belirtebiliriz
+                            <br />
+                            <i>Bu kısa kullanımdaki sıralama şöyle olmalıdır : background-color background-image background-repeat background-attachment background-position </i>
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
         </div>
     </form>
 </body>
