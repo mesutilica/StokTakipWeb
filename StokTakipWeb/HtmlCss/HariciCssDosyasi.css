@@ -1,2 +1,5 @@
-﻿* { text-align: left; color: gray; padding:0; }
+﻿* { text-align: left; color: gray; padding: 0; }
 body { font-size: 100%; }
+h1 { color: navy; font-size: xx-large; }
+/*Bu css in kullanıldığı sayfalardaki h1 lerin rengini buna ayarla*/
+h2 { color: orange }/*h2 lerin rengini turuncu yap*/

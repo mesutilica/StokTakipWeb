@@ -5,6 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Css Dersleri</title>
+    <link href="HariciCssDosyasi.css" rel="stylesheet" />
     <style>
         /*Css kodlarımızı sayfalarımızın head etiketleri arasında tanımlayabiliriz. Bu kullanıma Dahili Css denir. */
         h1 { color: red; }
@@ -24,7 +25,6 @@
         * { text-align: center; color: blue; font-size: 103%; }
         /* CSS Evrensel Seçici ile sayfadaki tüm HTML öğelerini seçip stil uygulayabiliriz */
     </style>
-    <link href="HariciCssDosyasi.css" rel="stylesheet" />
 </head>
 <body>
     <form id="form1" runat="server">
@@ -148,12 +148,13 @@
             </p>
 
             <p>
-                Yukarıdaki gibi aynı css kodlarına sahip elemanlaru şu şekilde gruplayarak daha az kodla işimizi çözebiliriz; <br />
+                Yukarıdaki gibi aynı css kodlarına sahip elemanlaru şu şekilde gruplayarak daha az kodla işimizi çözebiliriz;
+                <br />
                 h1, h2, p { text-align: center; color: red; }
             </p>
 
             <h2>CSS Nasıl Eklenir</h2>
-            
+
             <h3>CSS Eklemenin Üç Yolu Vardır</h3>
 
             <p>Harici CSS, Dahili CSS, Sıralı(İnline) CSS </p>
@@ -165,6 +166,20 @@
             <p>Harici stiller,html sayfasının < head> bölümünde < link> öğesi içinde tanımlanır:</p>
 
             <p>Şu şekilde : < link rel="stylesheet" href="mystyle.css"> </p>
+
+            <h2>Sıralı(Inline) CSS</h2>
+
+            <p>
+                Tek bir öğeye benzersiz bir stil uygulamak için satır içi stil kullanılabilir.
+            </p>
+            <p>
+                Html elemanlarının içine yazdığımız css lere inline css denir.
+            </p>
+
+            <h3 style="color: blue; text-align: center;">İnline css kullanılmış başlık</h3>
+            <p style="color: crimson;">
+                İnline css yazarak renk değişimi
+            </p>
 
         </div>
     </form>
