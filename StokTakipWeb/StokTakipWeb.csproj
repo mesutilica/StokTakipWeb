@@ -84,6 +84,9 @@
     <Content Include="Admin\MarkaYonetimi.aspx" />
     <Content Include="Admin\SiparisYonetimi.aspx" />
     <Content Include="HtmlCss\Css02MarginPadding.aspx" />
+    <Content Include="HtmlCss\Css03GenislikYukseklik.aspx" />
+    <Content Include="HtmlCss\Css04DisplayOzelligi.aspx" />
+    <Content Include="HtmlCss\Css05PositionOzelligi.aspx" />
     <Content Include="HtmlCss\CssDersleri.aspx" />
     <Content Include="HtmlCss\HariciCssDosyasi.css" />
     <Content Include="HtmlCss\HtmlDersleri.aspx" />
@@ -158,6 +161,27 @@
     </Compile>
     <Compile Include="HtmlCss\Css02MarginPadding.aspx.designer.cs">
       <DependentUpon>Css02MarginPadding.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HtmlCss\Css03GenislikYukseklik.aspx.cs">
+      <DependentUpon>Css03GenislikYukseklik.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HtmlCss\Css03GenislikYukseklik.aspx.designer.cs">
+      <DependentUpon>Css03GenislikYukseklik.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HtmlCss\Css04DisplayOzelligi.aspx.cs">
+      <DependentUpon>Css04DisplayOzelligi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HtmlCss\Css04DisplayOzelligi.aspx.designer.cs">
+      <DependentUpon>Css04DisplayOzelligi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HtmlCss\Css05PositionOzelligi.aspx.cs">
+      <DependentUpon>Css05PositionOzelligi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HtmlCss\Css05PositionOzelligi.aspx.designer.cs">
+      <DependentUpon>Css05PositionOzelligi.aspx</DependentUpon>
     </Compile>
     <Compile Include="HtmlCss\CssDersleri.aspx.cs">
       <DependentUpon>CssDersleri.aspx</DependentUpon>
