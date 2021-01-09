@@ -83,6 +83,7 @@
     <Content Include="Admin\KullaniciYonetimi.aspx" />
     <Content Include="Admin\MarkaYonetimi.aspx" />
     <Content Include="Admin\SiparisYonetimi.aspx" />
+    <Content Include="HtmlCss\Css02MarginPadding.aspx" />
     <Content Include="HtmlCss\CssDersleri.aspx" />
     <Content Include="HtmlCss\HariciCssDosyasi.css" />
     <Content Include="HtmlCss\HtmlDersleri.aspx" />
@@ -150,6 +151,13 @@
     </Compile>
     <Compile Include="Admin\MarkaYonetimi.aspx.designer.cs">
       <DependentUpon>MarkaYonetimi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HtmlCss\Css02MarginPadding.aspx.cs">
+      <DependentUpon>Css02MarginPadding.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HtmlCss\Css02MarginPadding.aspx.designer.cs">
+      <DependentUpon>Css02MarginPadding.aspx</DependentUpon>
     </Compile>
     <Compile Include="HtmlCss\CssDersleri.aspx.cs">
       <DependentUpon>CssDersleri.aspx</DependentUpon>
