@@ -87,6 +87,8 @@
     <Content Include="HtmlCss\Css03GenislikYukseklik.aspx" />
     <Content Include="HtmlCss\Css04DisplayOzelligi.aspx" />
     <Content Include="HtmlCss\Css05PositionOzelligi.aspx" />
+    <Content Include="HtmlCss\Css06IcerikTasmasi.aspx" />
+    <Content Include="HtmlCss\Css07FloatOzellgi.aspx" />
     <Content Include="HtmlCss\CssDersleri.aspx" />
     <Content Include="HtmlCss\HariciCssDosyasi.css" />
     <Content Include="HtmlCss\HtmlDersleri.aspx" />
@@ -183,6 +185,20 @@
     <Compile Include="HtmlCss\Css05PositionOzelligi.aspx.designer.cs">
       <DependentUpon>Css05PositionOzelligi.aspx</DependentUpon>
     </Compile>
+    <Compile Include="HtmlCss\Css06IcerikTasmasi.aspx.cs">
+      <DependentUpon>Css06IcerikTasmasi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HtmlCss\Css06IcerikTasmasi.aspx.designer.cs">
+      <DependentUpon>Css06IcerikTasmasi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HtmlCss\Css07FloatOzellgi.aspx.cs">
+      <DependentUpon>Css07FloatOzellgi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HtmlCss\Css07FloatOzellgi.aspx.designer.cs">
+      <DependentUpon>Css07FloatOzellgi.aspx</DependentUpon>
+    </Compile>
     <Compile Include="HtmlCss\CssDersleri.aspx.cs">
       <DependentUpon>CssDersleri.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -239,8 +255,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Admin\Uploads\" />
     <Folder Include="App_Data\" />
+    <Folder Include="Uploads\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\StokTakip.BL\StokTakip.BL.csproj">

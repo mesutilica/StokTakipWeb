@@ -1,21 +1,11 @@
-﻿body {
-}
+﻿body { }
 
 ul#menu { margin: 34px; text-align: center; }
 
-#menu li { /*html elemanlarından ıd si menu olan elemanı seç*/
-    display: inline; /*display:inline kodu menüdeki elemanları yan yana dizmemizi sağlar*/
-    padding: 18px; /*sayfadaki menü nün içindeki li elemanlarına iç boşluk verir*/
-    /* margin: 18px;sayfadaki menü nün içindeki li elemanlarına dış boşluk verir*/
-    background-color: #eee; /*li lere arkaplan rengi verir*/
-}
+#menu li { /*html elemanlarından ıd si menu olan elemanı seç*/ display: inline; /*display:inline kodu menüdeki elemanları yan yana dizmemizi sağlar*/ padding: 18px; /*sayfadaki menü nün içindeki li elemanlarına iç boşluk verir*/ /* margin: 18px;sayfadaki menü nün içindeki li elemanlarına dış boşluk verir*/ background-color: #eee; /*li lere arkaplan rengi verir*/ }
 
-    #menu li:hover /* sayfadaki menu id li ul nin altındaki li lerin üzerine gelindiğinde bu li nin css özelliklerini  hover kodu ile değiştirebiliriz */
-    {
-        background-color: #ddd;
-    }
+    #menu li:hover /* sayfadaki menu id li ul nin altındaki li lerin üzerine gelindiğinde bu li nin css özelliklerini  hover kodu ile değiştirebiliriz */ { background-color: #ddd; }
 
-    #menu li a {
-        color: black; /* li lerin içindeki a elemanlarına siyah rengi verir */
-        text-decoration: none; /* a elemanlarının altındaki çizgiyi yok etmek için */
-    }
+    #menu li a { color: black; /* li lerin içindeki a elemanlarına siyah rengi verir */ text-decoration: none; /* a elemanlarının altındaki çizgiyi yok etmek için */ }
+
+table { text-align: center; margin: 150px auto; }
