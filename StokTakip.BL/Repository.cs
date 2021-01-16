@@ -1,9 +1,11 @@
 ﻿using StokTakip.DAL;
 using StokTakip.Entities;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Linq;
+using System.Linq.Expressions;
 
 namespace StokTakip.BL
 {
@@ -21,7 +23,11 @@ namespace StokTakip.BL
         }
         public List<T> GetAll()
         {
-           return _dbSet.ToList();
+            return _dbSet.ToList();
+        }
+        public List<T> List(Expression<Func<T, bool>> expression)//List metodu ile weritabanını linq metoduyla sorgular gönderip verileri filtreye göre getirtebiliriz
+        {//Expression linq ile verileri sorgulamada kullanılan c# yapısıdır
+            return _dbSet.Where(expression).ToList();//Burada ToList demeden önce where ifadesini ekliyoruz ve parantez içinde de gelen sorgumuzu çalıştıracağız expression kısmından
         }
         public T Get(int id)
         {

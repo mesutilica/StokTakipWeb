@@ -9,11 +9,8 @@
     ItemTemplate alanı veritabanından gelen kayıtların gösterildiği alandır.
     FooterTemplate alanı da ItemTemplate ile gösterilen verilerden sonraki kısma html kodu yazabilmemizi sağlar.
     Yani HeaderTemplate ve FooterTemplate ile veritabanından gelen dataları göstereceğimiz tablonun açılış kapanış kodlarını yazabiliriz.--%>
-    
-    
 
-    <asp:Repeater ID="rptAnasayfaUrunleri" runat="server">       
-
+    <asp:Repeater ID="rptAnasayfaUrunleri" runat="server">
         <HeaderTemplate>
             <table>
                 <th>
@@ -23,21 +20,16 @@
                 </th>
                 <tr>
         </HeaderTemplate>
-
         <ItemTemplate>
-
             <td>
                 <img src="/uploads/<%#Eval("Resim") %>" alt="Resim Yok" height="200" />
                 <div><%#Eval("UrunAdi") %></div>
             </td>
-
         </ItemTemplate>
-
         <FooterTemplate>
             </tr>
             </table>
         </FooterTemplate>
-
     </asp:Repeater>
 
     <p>Sizin için en son teknoloji ürünlerini sunmaya çalışıyoruz.</p>

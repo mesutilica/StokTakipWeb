@@ -13,12 +13,8 @@
     <form id="form1" runat="server">
         <div>
             <ul id="menu">
-                <li><a href="/Kategori.aspx">Kategori</a></li>
-                <li><a href="/Marka.aspx">Marka</a></li>
-                <li><a href="/Urun.aspx">Ürün</a></li>
-                <li><a href="/Siparis.aspx">Sipariş</a></li>
-                <li><a href="/Kullanici.aspx">Kullanıcı</a></li>
-                <li><a href="#">Çıkış</a></li>
+                <li><a href="/">Anasayfa</a></li>
+                <asp:Literal ID="LtKategoriler" runat="server"></asp:Literal>
             </ul>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
