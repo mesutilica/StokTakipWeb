@@ -8,4 +8,6 @@ ul#menu { margin: 34px; text-align: center; }
 
     #menu li a { color: black; /* li lerin içindeki a elemanlarına siyah rengi verir */ text-decoration: none; /* a elemanlarının altındaki çizgiyi yok etmek için */ }
 
-table { text-align: center; margin: 150px auto; }
+.urunler { text-align: center; margin: 100px auto; }
+.ortala { text-align: center; }
+.mauto{ margin : auto; }

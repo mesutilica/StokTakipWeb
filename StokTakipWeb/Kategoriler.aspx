@@ -8,13 +8,15 @@
         <asp:Literal ID="LtKategoriBaslik" runat="server" Text="Ürünlerimiz"></asp:Literal>
     </h1>
 
-    <table>
+    <table class="urunler">
         <tr>
             <asp:Repeater ID="rptAnasayfaUrunleri" runat="server">
                 <ItemTemplate>
                     <td>
-                        <img src="/uploads/<%#Eval("Resim") %>" alt="Resim Yok" height="200" />
-                        <div><%#Eval("UrunAdi") %></div>
+                        <a href="/UrunDetay.aspx?uid=<%#Eval("Id") %>">
+                            <img src="/uploads/<%#Eval("Resim") %>" alt="Resim Yok" height="200" />
+                            <div><%#Eval("UrunAdi") %></div>
+                        </a>
                     </td>
                 </ItemTemplate>
             </asp:Repeater>

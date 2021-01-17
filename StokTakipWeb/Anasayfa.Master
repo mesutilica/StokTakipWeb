@@ -19,6 +19,26 @@
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         </div>
+        <footer>
+            <table>
+                <tr>
+                    <td>Hakkımızda
+                        <hr />
+                        Ünal Elektronik olarak günlerden beri sektörde öncü firmayız.
+                        <hr />
+                        E Mail : info@unalelektronik.com
+                    </td>
+                    <td>Hizmetler
+                        <hr />
+                        Yetkili Olduğumuz Ürünlerde , Montaj ve Onarım Hizmeti Vermekteyiz.
+                    </td>
+                    <td>Profesyonel Ekip
+                        <hr />
+                        Uzman Kadromuz İle Nitelikli Hizmet Vermekteyiz.
+                    </td>
+                </tr>
+            </table>
+        </footer>
     </form>
 </body>
 </html>

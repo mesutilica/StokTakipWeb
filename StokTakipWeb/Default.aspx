@@ -10,20 +10,19 @@
     FooterTemplate alanı da ItemTemplate ile gösterilen verilerden sonraki kısma html kodu yazabilmemizi sağlar.
     Yani HeaderTemplate ve FooterTemplate ile veritabanından gelen dataları göstereceğimiz tablonun açılış kapanış kodlarını yazabiliriz.--%>
 
+    <h1 class="ortala">Ürünlerimiz</h1>
+
     <asp:Repeater ID="rptAnasayfaUrunleri" runat="server">
         <HeaderTemplate>
-            <table>
-                <th>
-                    <td>
-                        <h1>Ürünlerimiz</h1>
-                    </td>
-                </th>
+            <table class="urunler">                
                 <tr>
         </HeaderTemplate>
         <ItemTemplate>
             <td>
-                <img src="/uploads/<%#Eval("Resim") %>" alt="Resim Yok" height="200" />
-                <div><%#Eval("UrunAdi") %></div>
+                <a href="/UrunDetay.aspx?uid=<%#Eval("Id") %>">
+                    <img src="/uploads/<%#Eval("Resim") %>" alt="Resim Yok" height="200" />
+                    <div><%#Eval("UrunAdi") %></div>
+                </a>
             </td>
         </ItemTemplate>
         <FooterTemplate>
