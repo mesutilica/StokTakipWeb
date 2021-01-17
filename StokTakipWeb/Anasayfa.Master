@@ -20,7 +20,7 @@
             </asp:ContentPlaceHolder>
         </div>
         <footer>
-            <table>
+            <table class="mauto">
                 <tr>
                     <td>Hakkımızda
                         <hr />

@@ -14,7 +14,7 @@
 
     <asp:Repeater ID="rptAnasayfaUrunleri" runat="server">
         <HeaderTemplate>
-            <table class="urunler">                
+            <table class="urunler">
                 <tr>
         </HeaderTemplate>
         <ItemTemplate>
@@ -31,7 +31,9 @@
         </FooterTemplate>
     </asp:Repeater>
 
-    <p>Sizin için en son teknoloji ürünlerini sunmaya çalışıyoruz.</p>
-    <p>İmza : Ünal elektronik...</p>
+    <div class="ortala">
+        <p>Sizin için en son teknoloji ürünlerini sunmaya çalışıyoruz.</p>
+        <p>İmza : Ünal elektronik...</p>
+    </div>
 
 </asp:Content>

@@ -12,7 +12,7 @@
     <ajaxToolkit:TabContainer ID="TabContainer1" runat="server" ActiveTabIndex="0" Width="100%">
         <ajaxToolkit:TabPanel runat="server" HeaderText="Marka Listesi" ID="TabPanel1">
             <ContentTemplate>
-                <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="Id" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None">
+                <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="Id" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                     <Columns>
                         <asp:BoundField DataField="Id" HeaderText="Id" InsertVisible="False" ReadOnly="True" SortExpression="Id" />
@@ -20,6 +20,7 @@
                         <asp:BoundField DataField="MarkaAciklamasi" HeaderText="MarkaAciklamasi" SortExpression="MarkaAciklamasi" />
                         <asp:BoundField DataField="EklenmeTarihi" HeaderText="EklenmeTarihi" SortExpression="EklenmeTarihi" />
                         <asp:CheckBoxField DataField="Aktif" HeaderText="Aktif" SortExpression="Aktif" />
+                        <asp:BoundField DataField="MarkaLogo" HeaderText="MarkaLogo" SortExpression="MarkaLogo" />
                         <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ShowSelectButton="True" />
                     </Columns>
                     <EditRowStyle BackColor="#999999" />
@@ -46,10 +47,23 @@
                         </td>
                     </tr>
                     <tr>
+                        <td>Marka Logosu</td>
+                        <td>
+                            <asp:FileUpload ID="FuMarkaLogo" runat="server" />
+                            <asp:Image ID="ImgResim" runat="server" Height="75px" />
+                        </td>
+                    </tr>
+                    <tr>
                         <td>Marka Açıklaması</td>
                         <td>
                             <asp:TextBox ID="txtMarkaAciklamasi" runat="server" TextMode="MultiLine"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtMarkaAciklamasi" ErrorMessage="Boş Geçilemez!" ForeColor="Red"></asp:RequiredFieldValidator>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Eklenme Tarihi</td>
+                        <td>
+                            <asp:Label ID="lblEklenmeTarihi" runat="server"></asp:Label>
                         </td>
                     </tr>
                     <tr>
@@ -63,6 +77,7 @@
                         <td>
                             <asp:Button ID="btnKaydet" runat="server" OnClick="btnKaydet_Click" Style="height: 26px" Text="Ekle" />
                             <asp:Label ID="lblMesaj" runat="server"></asp:Label>
+                            <asp:Label ID="lblId" runat="server"></asp:Label>
                         </td>
                     </tr>
                 </table>
@@ -71,7 +86,7 @@
     </ajaxToolkit:TabContainer>
 
 
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseContext %>" DeleteCommand="DELETE FROM [Marka] WHERE [Id] = @Id" InsertCommand="INSERT INTO [Marka] ([MarkaAdi], [MarkaAciklamasi], [EklenmeTarihi], [Aktif]) VALUES (@MarkaAdi, @MarkaAciklamasi, @EklenmeTarihi, @Aktif)" SelectCommand="SELECT * FROM [Marka]" UpdateCommand="UPDATE [Marka] SET [MarkaAdi] = @MarkaAdi, [MarkaAciklamasi] = @MarkaAciklamasi, [EklenmeTarihi] = @EklenmeTarihi, [Aktif] = @Aktif WHERE [Id] = @Id">
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DatabaseContext %>" DeleteCommand="DELETE FROM [Marka] WHERE [Id] = @Id" InsertCommand="INSERT INTO [Marka] ([MarkaAdi], [MarkaAciklamasi], [EklenmeTarihi], [Aktif], [MarkaLogo]) VALUES (@MarkaAdi, @MarkaAciklamasi, @EklenmeTarihi, @Aktif, @MarkaLogo)" SelectCommand="SELECT * FROM [Marka]" UpdateCommand="UPDATE [Marka] SET [MarkaAdi] = @MarkaAdi, [MarkaAciklamasi] = @MarkaAciklamasi, [EklenmeTarihi] = @EklenmeTarihi, [Aktif] = @Aktif, [MarkaLogo] = @MarkaLogo WHERE [Id] = @Id">
         <DeleteParameters>
             <asp:Parameter Name="Id" Type="Int32" />
         </DeleteParameters>
@@ -80,12 +95,14 @@
             <asp:Parameter Name="MarkaAciklamasi" Type="String" />
             <asp:Parameter Name="EklenmeTarihi" Type="DateTime" />
             <asp:Parameter Name="Aktif" Type="Boolean" />
+            <asp:Parameter Name="MarkaLogo" Type="String" />
         </InsertParameters>
         <UpdateParameters>
             <asp:Parameter Name="MarkaAdi" Type="String" />
             <asp:Parameter Name="MarkaAciklamasi" Type="String" />
             <asp:Parameter Name="EklenmeTarihi" Type="DateTime" />
             <asp:Parameter Name="Aktif" Type="Boolean" />
+            <asp:Parameter Name="MarkaLogo" Type="String" />
             <asp:Parameter Name="Id" Type="Int32" />
         </UpdateParameters>
     </asp:SqlDataSource>

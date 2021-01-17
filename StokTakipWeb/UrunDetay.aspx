@@ -9,7 +9,7 @@
     <table class="mauto">
         <tr>
             <td>
-                <asp:Image ID="Image1" runat="server" />
+                <asp:Image ID="Image1" runat="server" CssClass="boyutlar" />
             </td>
             <td>
                 <asp:Literal ID="LtUrunAciklama" runat="server"></asp:Literal>

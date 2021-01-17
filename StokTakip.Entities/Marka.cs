@@ -9,5 +9,6 @@ namespace StokTakip.Entities
         public string MarkaAciklamasi { get; set; }
         public DateTime EklenmeTarihi { get; set; }
         public bool Aktif { get; set; }
+        public string MarkaLogo { get; set; }
     }
 }

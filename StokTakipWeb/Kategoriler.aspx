@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <h1 style="text-align:center">
+    <h1 class="ortala">
         <asp:Literal ID="LtKategoriBaslik" runat="server" Text="Ürünlerimiz"></asp:Literal>
     </h1>
 

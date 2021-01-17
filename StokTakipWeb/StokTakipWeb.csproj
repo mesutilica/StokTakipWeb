@@ -93,6 +93,7 @@
     <Content Include="HtmlCss\HariciCssDosyasi.css" />
     <Content Include="HtmlCss\HtmlDersleri.aspx" />
     <Content Include="Kategoriler.aspx" />
+    <Content Include="Markalar.aspx" />
     <Content Include="Site.css" />
     <Content Include="Admin\UrunYonetimi.aspx" />
     <Content Include="UrunDetay.aspx" />
@@ -221,6 +222,13 @@
     </Compile>
     <Compile Include="Kategoriler.aspx.designer.cs">
       <DependentUpon>Kategoriler.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Markalar.aspx.cs">
+      <DependentUpon>Markalar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Markalar.aspx.designer.cs">
+      <DependentUpon>Markalar.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Admin\SiparisYonetimi.aspx.cs">

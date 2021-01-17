@@ -10,4 +10,8 @@ ul#menu { margin: 34px; text-align: center; }
 
 .urunler { text-align: center; margin: 100px auto; }
 .ortala { text-align: center; }
-.mauto{ margin : auto; }
+/*Bu class ı kullanan elemanların metinleri ortalanır*/
+.mauto { margin: auto; }
+/*Bu class ı kullanan elemanlar sayfada ortalanır*/
+.boyutlar { max-height: 500px; }
+footer table td { vertical-align: top; padding: 18px; }/*Sayfadaki footer elementinin altındaki table elementinin altındaki td elementlerinin içeriklerini yukarıya hizala */
