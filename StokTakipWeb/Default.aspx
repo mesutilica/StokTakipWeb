@@ -14,20 +14,18 @@
 
     <asp:Repeater ID="rptAnasayfaUrunleri" runat="server">
         <HeaderTemplate>
-            <table class="urunler">
-                <tr>
+            <div class="urunler">
         </HeaderTemplate>
         <ItemTemplate>
-            <td>
+            <div class="urun">
                 <a href="/UrunDetay.aspx?uid=<%#Eval("Id") %>">
-                    <img src="/uploads/<%#Eval("Resim") %>" alt="Resim Yok" height="200" />
+                    <img src="/uploads/<%#Eval("Resim") %>" alt="Resim Yok" />
                     <div><%#Eval("UrunAdi") %></div>
                 </a>
-            </td>
+            </div>
         </ItemTemplate>
         <FooterTemplate>
-            </tr>
-            </table>
+            </div>
         </FooterTemplate>
     </asp:Repeater>
 

@@ -1,17 +1,28 @@
-﻿body { }
-
+﻿body { /*Buraya yazacağımız css özellikleri body elementi ve içindekilere uygulanır*/ }
 ul#menu { margin: 34px; text-align: center; }
-
-#menu li { /*html elemanlarından ıd si menu olan elemanı seç*/ display: inline; /*display:inline kodu menüdeki elemanları yan yana dizmemizi sağlar*/ padding: 18px; /*sayfadaki menü nün içindeki li elemanlarına iç boşluk verir*/ /* margin: 18px;sayfadaki menü nün içindeki li elemanlarına dış boşluk verir*/ background-color: #eee; /*li lere arkaplan rengi verir*/ }
-
+#menu li { /*html elemanlarından ıd si menu olan elemanı seç*/ display: inline; /*display:inline kodu menüdeki elemanları yan yana dizmemizi sağlar*/ padding: 18px; /*sayfadaki menü nün içindeki li elemanlarına iç boşluk verir*/ /* margin: 18px;sayfadaki menü nün içindeki li elemanlarına dış boşluk verir*/ background-color: #eee; /*li lere arkaplan rengi verir*/ margin-right: 18px; /*Üst menüdeki li elementlerine sağdan 18px boşluk ver */ }
     #menu li:hover /* sayfadaki menu id li ul nin altındaki li lerin üzerine gelindiğinde bu li nin css özelliklerini  hover kodu ile değiştirebiliriz */ { background-color: #ddd; }
-
     #menu li a { color: black; /* li lerin içindeki a elemanlarına siyah rengi verir */ text-decoration: none; /* a elemanlarının altındaki çizgiyi yok etmek için */ }
-
 .urunler { text-align: center; margin: 100px auto; }
+.urun { display: inline-block; max-width: 20%; /*Ürünlere özel css uygulamak isterse buraya kodları yazabiliriz*/ }
+    .urun img { width: 100%; height: auto; }
+/*.urun class ına sahip tüm elementleri seç ve buradaki css özelliklerini seçilen elementlere uygula*/
 .ortala { text-align: center; }
 /*Bu class ı kullanan elemanların metinleri ortalanır*/
 .mauto { margin: auto; }
 /*Bu class ı kullanan elemanlar sayfada ortalanır*/
 .boyutlar { max-height: 500px; }
-footer table td { vertical-align: top; padding: 18px; }/*Sayfadaki footer elementinin altındaki table elementinin altındaki td elementlerinin içeriklerini yukarıya hizala */
+footer table td { vertical-align: top; padding: 18px; }
+/*Sayfadaki footer elementinin altındaki table elementinin altındaki td elementlerinin içeriklerini yukarıya hizala */
+
+@media (max-width: 768px) /*media özelliği ile ekran çözünürlüğüne göre css özelliği tanımlayabiliriz. Burada uygulamaya bağlanan cihazın ekran çözünürlüğü maximum 768 px e kadar olan mobil cihazlara görekod yazıyoruz. */ {
+    .urun { display: block; width: 100%; max-width: 100%;  /*max-width: 100% koduyla mobil cihazlarda masaüstü cihazlar için verdiğimiz %20 genişlik kuralını ezip %100 yapıyoruz*/ }
+    /*.urun classının özelliklerini mobil cihazlarda değiştir ve ekranı satır satır kaplamasını sağla*/
+        
+    footer table td { display: block; }
+    #menu li { display: inline-block; padding: 5px; margin-right: 5px; }
+}
+
+@media (min-width:768px) {
+    /*Ekran çözünürlüğü minimum 768px olan yani masaüstü vb gibi mobil olmayan cihazlara özel css kodu tanımlamak için bu kısma kod yazabiliriz */
+}
