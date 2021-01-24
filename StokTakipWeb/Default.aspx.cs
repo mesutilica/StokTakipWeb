@@ -13,7 +13,7 @@ namespace StokTakipWeb
         UrunManager um = new UrunManager();
         protected void Page_Load(object sender, EventArgs e)
         {
-            rptAnasayfaUrunleri.DataSource = um.GetAll();
+            rptAnasayfaUrunleri.DataSource = um.List(u => u.Aktif == true);//Ürünlerden aktif özelliği true olanları getir
             rptAnasayfaUrunleri.DataBind();
         }
     }

@@ -50,7 +50,7 @@
         <div>
             <table class="giris">
                 <tr>
-                    <td>Kullanıcı Adı</td>
+                    <td>Email</td>
                     <td id="bunuSec">
                         <asp:TextBox ID="txtKullaniciAdi" runat="server"></asp:TextBox>
                     </td>

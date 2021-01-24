@@ -15,6 +15,8 @@
             <ul id="menu">
                 <li><a href="/">Anasayfa</a></li>
                 <asp:Literal ID="LtKategoriler" runat="server"></asp:Literal>
+                <li><a href="#">Üye Girişi</a></li>
+                <li><a href="#">Üye Kayıt</a></li>
             </ul>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>

@@ -133,6 +133,7 @@
                         <td>
                             <asp:FileUpload ID="fuResim" runat="server" />
                             <asp:Image ID="ImgResim" runat="server" Height="75px" />
+                            <asp:Literal ID="LtResimAdi" runat="server"></asp:Literal>
                         </td>
                     </tr>
                     <tr>

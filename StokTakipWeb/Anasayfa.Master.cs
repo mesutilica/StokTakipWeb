@@ -18,8 +18,7 @@ namespace StokTakipWeb
 
         void KategorileriYukle()
         {
-            var kategoriListesi = kategori.GetAll();//Kategorileri veritabanından çekip bir listeye yükledik
-
+            var kategoriListesi = kategori.List(k => k.Aktif == true);//List metoduyla veritabanından çekilen verilere filtreleme işlemi yaparak aktif özelliği true olanları getirtiyoruz. //GetAll Kategorileri veritabanından çekip bir listeye yükledik
             foreach (var item in kategoriListesi)
             {
                 LtKategoriler.Text += $"<li><a href='/Kategoriler.aspx?kid={item.Id}'>{item.KategoriAdi}</a></li>";//veritabanından çekilen kategorileri ön yüze eklediğimiz ltkategoriler literal kontrolüne ekledik 

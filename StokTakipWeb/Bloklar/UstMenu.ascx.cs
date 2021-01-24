@@ -13,5 +13,12 @@ namespace StokTakipWeb.Bloklar
         {
 
         }
+
+        protected void LbCikis_Click(object sender, EventArgs e)
+        {
+            Session["admin"] = null; //session admin nesnesini boşalt ve çıkış yap
+
+            Response.Redirect("/Admin/Giris.aspx", true);//Sayfayı admin giriş sayfasına yönlendir
+        }
     }
 }

@@ -46,6 +46,7 @@ namespace StokTakipWeb
                     fuResim.SaveAs(Server.MapPath("~/Uploads/" + fuResim.FileName));//furesimden seçilen resmi sunucudaki uploads klasörüne kaydet
                     urun.Resim = fuResim.FileName;
                 }
+                else urun.Resim = LtResimAdi.Text;
                 if (string.IsNullOrWhiteSpace(lblId.Text)) um.Add(urun);
                 else 
                 {
@@ -74,6 +75,7 @@ namespace StokTakipWeb
                 txtStokMiktari.Text = satir.Cells[9].Text;
                 lblId.Text = satir.Cells[1].Text;
                 ImgResim.ImageUrl = "~/Uploads/" + satir.Cells[12].Text;
+                LtResimAdi.Text = satir.Cells[12].Text;
                 btnKaydet.Text = "Güncelle";
                 TabContainer1.ActiveTabIndex = 1;
             }
