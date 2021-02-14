@@ -1,11 +1,11 @@
 ﻿@model IEnumerable<StokTakip.Entities.Kategori>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Kategoriler";
     
 }
 
-<h2>Index</h2>
+<h2>Kategoriler</h2>
 
 <p>
     @Html.ActionLink("Yeni Ekle", "Create")
@@ -42,9 +42,9 @@
             @Html.DisplayFor(modelItem => item.Aktif)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            @Html.ActionLink("Düzenle", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Detay", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Sil", "Delete", new { id=item.Id })
         </td>
     </tr>
 }

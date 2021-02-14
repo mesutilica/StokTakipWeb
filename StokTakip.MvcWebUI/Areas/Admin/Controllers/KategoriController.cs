@@ -1,24 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
+using StokTakip.BL;
 using StokTakip.Entities;
-using StokTakip.MvcWebUI.Data;
 
 namespace StokTakip.MvcWebUI.Areas.Admin.Controllers
 {
     public class KategoriController : Controller
     {
-        private StokTakipMvcWebUIContext db = new StokTakipMvcWebUIContext();
-
-        // GET: Admin/Kategoris
+        //private StokTakipMvcWebUIContext db = new StokTakipMvcWebUIContext();
+        KategoriManager db = new KategoriManager();
+        // GET: Admin/Kategori
         public ActionResult Index()
         {
-            return View(db.Kategori.ToList());
+            return View(db.GetAll());
         }
 
         // GET: Admin/Kategoris/Details/5
@@ -28,7 +24,7 @@ namespace StokTakip.MvcWebUI.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Kategori kategori = db.Kategori.Find(id);
+            Kategori kategori = db.Get(id.Value);
             if (kategori == null)
             {
                 return HttpNotFound();
@@ -51,8 +47,7 @@ namespace StokTakip.MvcWebUI.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Kategori.Add(kategori);
-                db.SaveChanges();
+                db.Add(kategori);
                 return RedirectToAction("Index");
             }
 
@@ -66,7 +61,7 @@ namespace StokTakip.MvcWebUI.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Kategori kategori = db.Kategori.Find(id);
+            Kategori kategori = db.Get(id.Value);
             if (kategori == null)
             {
                 return HttpNotFound();
@@ -83,8 +78,8 @@ namespace StokTakip.MvcWebUI.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(kategori).State = EntityState.Modified;
-                db.SaveChanges();
+                db.Update(kategori);
+                
                 return RedirectToAction("Index");
             }
             return View(kategori);
@@ -97,7 +92,7 @@ namespace StokTakip.MvcWebUI.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Kategori kategori = db.Kategori.Find(id);
+            Kategori kategori = db.Get(id.Value);
             if (kategori == null)
             {
                 return HttpNotFound();
@@ -110,19 +105,12 @@ namespace StokTakip.MvcWebUI.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Kategori kategori = db.Kategori.Find(id);
-            db.Kategori.Remove(kategori);
-            db.SaveChanges();
+            Kategori kategori = db.Get(id);
+            db.Delete(kategori.Id);
+            
             return RedirectToAction("Index");
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+        
     }
 }
