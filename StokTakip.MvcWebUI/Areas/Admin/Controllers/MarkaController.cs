@@ -1,116 +1,128 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
+using System.Linq;
 using System.Net;
+using System.Web;
 using System.Web.Mvc;
-using StokTakip.BL;
 using StokTakip.Entities;
+using StokTakip.BL;
+using System.IO;
 
 namespace StokTakip.MvcWebUI.Areas.Admin.Controllers
 {
-    public class KategoriController : Controller
+    public class MarkaController : Controller
     {
         //private StokTakipMvcWebUIContext db = new StokTakipMvcWebUIContext();
-        KategoriManager db = new KategoriManager();
-        // GET: Admin/Kategori
+        MarkaManager db = new MarkaManager();
+        // GET: Admin/Marka
         public ActionResult Index()
         {
             return View(db.GetAll());
         }
 
-        // GET: Admin/Kategoris/Details/5
+        // GET: Admin/Marka/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Kategori kategori = db.Get(id.Value);
-            if (kategori == null)
+            Marka marka = db.Get(id.Value);
+            if (marka == null)
             {
                 return HttpNotFound();
             }
-            return View(kategori);
+            return View(marka);
         }
 
-        // GET: Admin/Kategoris/Create
+        // GET: Admin/Marka/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Admin/Kategoris/Create
+        // POST: Admin/Marka/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,KategoriAdi,KategoriAciklamasi,EklenmeTarihi,Aktif")] Kategori kategori)
+        public ActionResult Create([Bind(Include = "Id,MarkaAdi,MarkaAciklamasi,EklenmeTarihi,Aktif,MarkaLogo")] Marka marka, HttpPostedFileBase MarkaLogo)
         {
             if (ModelState.IsValid)
             {
-                kategori.EklenmeTarihi = DateTime.Now;
-                db.Add(kategori);
+                string directory = Server.MapPath("~/Img/Marka/");
+                if (MarkaLogo != null)
+                {
+                    var fileName = Path.GetFileName(MarkaLogo.FileName);
+                    MarkaLogo.SaveAs(Path.Combine(directory, fileName));
+                    marka.MarkaLogo = MarkaLogo.FileName;
+                }
+                marka.EklenmeTarihi = DateTime.Now;
+                db.Add(marka);
                 return RedirectToAction("Index");
             }
 
-            return View(kategori);
+            return View(marka);
         }
 
-        // GET: Admin/Kategoris/Edit/5
+        // GET: Admin/Marka/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Kategori kategori = db.Get(id.Value);
-            if (kategori == null)
+            Marka marka = db.Get(id.Value);
+            if (marka == null)
             {
                 return HttpNotFound();
             }
-            return View(kategori);
+            return View(marka);
         }
 
-        // POST: Admin/Kategoris/Edit/5
+        // POST: Admin/Marka/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,KategoriAdi,KategoriAciklamasi,EklenmeTarihi,Aktif")] Kategori kategori)
+        public ActionResult Edit([Bind(Include = "Id,MarkaAdi,MarkaAciklamasi,EklenmeTarihi,Aktif,MarkaLogo")] Marka marka)
         {
             if (ModelState.IsValid)
             {
-                db.Update(kategori);
                 
+                db.Update(marka);
                 return RedirectToAction("Index");
             }
-            return View(kategori);
+            return View(marka);
         }
 
-        // GET: Admin/Kategoris/Delete/5
+        // GET: Admin/Marka/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Kategori kategori = db.Get(id.Value);
-            if (kategori == null)
+            Marka marka = db.Get(id.Value);
+            if (marka == null)
             {
                 return HttpNotFound();
             }
-            return View(kategori);
+            return View(marka);
         }
 
-        // POST: Admin/Kategoris/Delete/5
+        // POST: Admin/Marka/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Kategori kategori = db.Get(id);
-            db.Delete(kategori.Id);
+            Marka marka = db.Get(id);
+            db.Delete(marka.Id);
             
             return RedirectToAction("Index");
         }
 
-        
     }
 }

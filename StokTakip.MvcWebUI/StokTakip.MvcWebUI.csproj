@@ -128,7 +128,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\KategoriController.cs" />
+    <Compile Include="Areas\Admin\Controllers\KullaniciController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
+    <Compile Include="Areas\Admin\Controllers\MarkaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Data\StokTakipMvcWebUIContext.cs" />
     <Compile Include="Global.asax.cs">
@@ -156,6 +158,16 @@
     <Content Include="Areas\Admin\Views\Kategori\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Kategori\Index.cshtml" />
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Admin\Views\Kullanici\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Kullanici\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Kullanici\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Kullanici\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Kullanici\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Marka\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Marka\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Marka\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Marka\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Marka\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -185,6 +197,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Img\Marka\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

@@ -21,5 +21,9 @@ namespace StokTakip.MvcWebUI.Data
         }
 
         public DbSet<Kategori> Kategori { get; set; }
+
+        public System.Data.Entity.DbSet<StokTakip.Entities.Kullanici> Kullanicis { get; set; }
+
+        public System.Data.Entity.DbSet<StokTakip.Entities.Marka> Markas { get; set; }
     }
 }

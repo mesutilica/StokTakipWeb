@@ -1,116 +1,120 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
+using System.Linq;
 using System.Net;
+using System.Web;
 using System.Web.Mvc;
-using StokTakip.BL;
 using StokTakip.Entities;
+using StokTakip.BL;
 
 namespace StokTakip.MvcWebUI.Areas.Admin.Controllers
 {
-    public class KategoriController : Controller
+    public class KullaniciController : Controller
     {
         //private StokTakipMvcWebUIContext db = new StokTakipMvcWebUIContext();
-        KategoriManager db = new KategoriManager();
-        // GET: Admin/Kategori
+        KullaniciManager db = new KullaniciManager();
+        // GET: Admin/Kullanici
         public ActionResult Index()
         {
             return View(db.GetAll());
         }
 
-        // GET: Admin/Kategoris/Details/5
+        // GET: Admin/Kullanici/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Kategori kategori = db.Get(id.Value);
-            if (kategori == null)
+            Kullanici kullanici = db.Get(id.Value);
+            if (kullanici == null)
             {
                 return HttpNotFound();
             }
-            return View(kategori);
+            return View(kullanici);
         }
 
-        // GET: Admin/Kategoris/Create
+        // GET: Admin/Kullanici/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Admin/Kategoris/Create
+        // POST: Admin/Kullanici/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,KategoriAdi,KategoriAciklamasi,EklenmeTarihi,Aktif")] Kategori kategori)
+        public ActionResult Create([Bind(Include = "Id,KullaniciAdi,KullaniciSifre,Email,Adi,Soyadi,Aktif")] Kullanici kullanici)
         {
             if (ModelState.IsValid)
             {
-                kategori.EklenmeTarihi = DateTime.Now;
-                db.Add(kategori);
+                db.Add(kullanici);
+                
                 return RedirectToAction("Index");
             }
 
-            return View(kategori);
+            return View(kullanici);
         }
 
-        // GET: Admin/Kategoris/Edit/5
+        // GET: Admin/Kullanici/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Kategori kategori = db.Get(id.Value);
-            if (kategori == null)
+            Kullanici kullanici = db.Get(id.Value);
+            if (kullanici == null)
             {
                 return HttpNotFound();
             }
-            return View(kategori);
+            return View(kullanici);
         }
 
-        // POST: Admin/Kategoris/Edit/5
+        // POST: Admin/Kullanici/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,KategoriAdi,KategoriAciklamasi,EklenmeTarihi,Aktif")] Kategori kategori)
+        public ActionResult Edit([Bind(Include = "Id,KullaniciAdi,KullaniciSifre,Email,Adi,Soyadi,Aktif")] Kullanici kullanici)
         {
             if (ModelState.IsValid)
             {
-                db.Update(kategori);
                 
+                db.Update(kullanici);
                 return RedirectToAction("Index");
             }
-            return View(kategori);
+            return View(kullanici);
         }
 
-        // GET: Admin/Kategoris/Delete/5
+        // GET: Admin/Kullanici/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Kategori kategori = db.Get(id.Value);
-            if (kategori == null)
+            Kullanici kullanici = db.Get(id.Value);
+            if (kullanici == null)
             {
                 return HttpNotFound();
             }
-            return View(kategori);
+            return View(kullanici);
         }
 
-        // POST: Admin/Kategoris/Delete/5
+        // POST: Admin/Kullanici/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Kategori kategori = db.Get(id);
-            db.Delete(kategori.Id);
+            Kullanici kullanici = db.Get(id);
+            db.Delete(kullanici.Id);
             
             return RedirectToAction("Index");
         }
-
-        
+                
     }
 }
