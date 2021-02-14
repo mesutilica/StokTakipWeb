@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StokTakip.DAL", "StokTakip.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StokTakip.BL", "StokTakip.BL\StokTakip.BL.csproj", "{5AF9083F-7437-4F2B-905B-3DD52A3C166C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StokTakip.MvcWebUI", "StokTakip.MvcWebUI\StokTakip.MvcWebUI.csproj", "{89141555-1B16-4597-BCD6-8FF6832A5391}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{5AF9083F-7437-4F2B-905B-3DD52A3C166C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5AF9083F-7437-4F2B-905B-3DD52A3C166C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5AF9083F-7437-4F2B-905B-3DD52A3C166C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89141555-1B16-4597-BCD6-8FF6832A5391}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89141555-1B16-4597-BCD6-8FF6832A5391}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89141555-1B16-4597-BCD6-8FF6832A5391}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89141555-1B16-4597-BCD6-8FF6832A5391}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
