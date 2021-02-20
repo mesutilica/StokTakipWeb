@@ -29,29 +29,31 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.MarkaAdi)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MarkaAciklamasi)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EklenmeTarihi)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Aktif)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MarkaLogo)
-        </td>
-        <td>
-            @Html.ActionLink("Düzenle", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Detay", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Sil", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MarkaAdi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MarkaAciklamasi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EklenmeTarihi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Aktif)
+            </td>
+            <td>
+                <img src="~/Img/Marka/@Html.DisplayFor(modelItem => item.MarkaLogo)" alt="Resim Yok" height="100" />
+                
+            </td>
+            <td>
+                @Html.ActionLink("Düzenle", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Detay", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Sil", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
 
 </table>

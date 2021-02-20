@@ -1,132 +1,113 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
-using StokTakip.Entities;
 using StokTakip.BL;
-using System.IO;
+using StokTakip.Entities;
 
 namespace StokTakip.MvcWebUI.Areas.Admin.Controllers
 {
-    public class MarkaController : Controller
+    public class UrunController : Controller
     {
-        //private StokTakipMvcWebUIContext db = new StokTakipMvcWebUIContext();
-        MarkaManager db = new MarkaManager();
-        // GET: Admin/Marka
+        private UrunManager db = new UrunManager();
+
+        // GET: Admin/Urun
         public ActionResult Index()
         {
             return View(db.GetAll());
         }
 
-        // GET: Admin/Marka/Details/5
+        // GET: Admin/Urun/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Marka marka = db.Get(id.Value);
-            if (marka == null)
+            Urun urun = db.Get(id.Value);
+            if (urun == null)
             {
                 return HttpNotFound();
             }
-            return View(marka);
+            return View(urun);
         }
 
-        // GET: Admin/Marka/Create
+        // GET: Admin/Urun/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Admin/Marka/Create
+        // POST: Admin/Urun/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Marka marka, HttpPostedFileBase MarkaLogo)
+        public ActionResult Create([Bind(Include = "Id,KategoriId,MarkaId,UrunAdi,UrunAciklamasi,EklenmeTarihi,UrunFiyati,Kdv,StokMiktari,Aktif,Resim")] Urun urun)
         {
             if (ModelState.IsValid)
             {
-                string directory = Server.MapPath("~/Img/Marka/");
-                if (MarkaLogo != null)
-                {
-                    var fileName = Path.GetFileName(MarkaLogo.FileName);
-                    MarkaLogo.SaveAs(Path.Combine(directory, fileName));
-                    marka.MarkaLogo = MarkaLogo.FileName;
-                }
-                marka.EklenmeTarihi = DateTime.Now;
-                db.Add(marka);
+                urun.EklenmeTarihi = DateTime.Now;
+                db.Add(urun);
                 return RedirectToAction("Index");
             }
 
-            return View(marka);
+            return View(urun);
         }
 
-        // GET: Admin/Marka/Edit/5
+        // GET: Admin/Urun/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Marka marka = db.Get(id.Value);
-            if (marka == null)
+            Urun urun = db.Get(id.Value);
+            if (urun == null)
             {
                 return HttpNotFound();
             }
-            return View(marka);
+            return View(urun);
         }
 
-        // POST: Admin/Marka/Edit/5
+        // POST: Admin/Urun/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Marka marka, HttpPostedFileBase MarkaLogo)
+        public ActionResult Edit([Bind(Include = "Id,KategoriId,MarkaId,UrunAdi,UrunAciklamasi,EklenmeTarihi,UrunFiyati,Kdv,StokMiktari,Aktif,Resim")] Urun urun)
         {
             if (ModelState.IsValid)
             {
-                string directory = Server.MapPath("~/Img/Marka/");
-                if (MarkaLogo != null)
-                {
-                    var fileName = Path.GetFileName(MarkaLogo.FileName);
-                    MarkaLogo.SaveAs(Path.Combine(directory, fileName));
-                    marka.MarkaLogo = MarkaLogo.FileName;
-                }
-                db.Update(marka);
+                db.Update(urun);
                 return RedirectToAction("Index");
             }
-            return View(marka);
+            return View(urun);
         }
 
-        // GET: Admin/Marka/Delete/5
+        // GET: Admin/Urun/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Marka marka = db.Get(id.Value);
-            if (marka == null)
+            Urun urun = db.Get(id.Value);
+            if (urun == null)
             {
                 return HttpNotFound();
             }
-            return View(marka);
+            return View(urun);
         }
 
-        // POST: Admin/Marka/Delete/5
+        // POST: Admin/Urun/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Marka marka = db.Get(id);
-            db.Delete(marka.Id);
-            
+            Urun urun = db.Get(id);
+            db.Delete(urun.Id);
             return RedirectToAction("Index");
         }
 

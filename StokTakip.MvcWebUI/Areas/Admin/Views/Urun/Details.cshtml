@@ -1,0 +1,98 @@
+﻿@model StokTakip.Entities.Urun
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Urun</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.KategoriId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KategoriId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MarkaId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MarkaId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UrunAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UrunAdi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UrunAciklamasi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UrunAciklamasi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EklenmeTarihi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EklenmeTarihi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UrunFiyati)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UrunFiyati)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Kdv)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kdv)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StokMiktari)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StokMiktari)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Aktif)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Aktif)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Resim)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Resim)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

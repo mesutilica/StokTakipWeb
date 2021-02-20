@@ -7,7 +7,7 @@
 <h2>Ekle</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("Create", "Marka", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     
