@@ -1,0 +1,82 @@
+﻿@model StokTakip.Entities.Siparis
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Siparis</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MusteriAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MusteriAdi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MusteriSoyadi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MusteriSoyadi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ulke)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ulke)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Adres)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Adres)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SiparisNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SiparisNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UrunId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UrunId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SiparisTarihi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SiparisTarihi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TeslimatTarihi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TeslimatTarihi)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,88 @@
+﻿@model StokTakip.Entities.Siparis
+
+@{
+    ViewBag.Title = "Sil";
+}
+
+<h2>Sil</h2>
+
+<h3>Silmek istiyor musunuz?</h3>
+<div>
+    <h4>Sipariş</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MusteriAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MusteriAdi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MusteriSoyadi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MusteriSoyadi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ulke)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ulke)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Adres)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Adres)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SiparisNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SiparisNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UrunId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UrunId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SiparisTarihi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SiparisTarihi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TeslimatTarihi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TeslimatTarihi)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Sil" class="btn btn-danger" /> |
+            @Html.ActionLink("Listeye Dön", "Index")
+        </div>
+    }
+</div>

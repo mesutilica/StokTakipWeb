@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
+using System.Web;
 using System.Web.Mvc;
 using StokTakip.BL;
 using StokTakip.Entities;
@@ -11,7 +13,8 @@ namespace StokTakip.MvcWebUI.Areas.Admin.Controllers
     public class UrunController : Controller
     {
         private UrunManager db = new UrunManager();
-
+        private KategoriManager kategoriManager = new KategoriManager();
+        private MarkaManager marka = new MarkaManager();
         // GET: Admin/Urun
         public ActionResult Index()
         {
@@ -36,23 +39,30 @@ namespace StokTakip.MvcWebUI.Areas.Admin.Controllers
         // GET: Admin/Urun/Create
         public ActionResult Create()
         {
+            ViewBag.KategoriId = new SelectList(kategoriManager.GetAll(), "Id", "KategoriAdi");
+            ViewBag.MarkaId = new SelectList(marka.GetAll(), "Id", "MarkaAdi");
             return View();
         }
 
-        // POST: Admin/Urun/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,KategoriId,MarkaId,UrunAdi,UrunAciklamasi,EklenmeTarihi,UrunFiyati,Kdv,StokMiktari,Aktif,Resim")] Urun urun)
+        public ActionResult Create(Urun urun, HttpPostedFileBase Resim)
         {
             if (ModelState.IsValid)
             {
+                string directory = Server.MapPath("~/Img/Urunler/");
+                if (Resim != null)
+                {
+                    var fileName = Path.GetFileName(Resim.FileName);
+                    Resim.SaveAs(Path.Combine(directory, fileName));
+                    urun.Resim = Resim.FileName;
+                }
                 urun.EklenmeTarihi = DateTime.Now;
                 db.Add(urun);
                 return RedirectToAction("Index");
             }
-
+            ViewBag.KategoriId = new SelectList(kategoriManager.GetAll(), "Id", "KategoriAdi");
+            ViewBag.MarkaId = new SelectList(marka.GetAll(), "Id", "MarkaAdi");
             return View(urun);
         }
 
@@ -68,21 +78,29 @@ namespace StokTakip.MvcWebUI.Areas.Admin.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.KategoriId = new SelectList(kategoriManager.GetAll(), "Id", "KategoriAdi", urun.KategoriId);
+            ViewBag.MarkaId = new SelectList(marka.GetAll(), "Id", "MarkaAdi", urun.MarkaId);
             return View(urun);
         }
 
-        // POST: Admin/Urun/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,KategoriId,MarkaId,UrunAdi,UrunAciklamasi,EklenmeTarihi,UrunFiyati,Kdv,StokMiktari,Aktif,Resim")] Urun urun)
+        public ActionResult Edit(Urun urun, HttpPostedFileBase Resim)
         {
             if (ModelState.IsValid)
             {
+                string directory = Server.MapPath("~/Img/Urunler/");
+                if (Resim != null)
+                {
+                    var fileName = Path.GetFileName(Resim.FileName);
+                    Resim.SaveAs(Path.Combine(directory, fileName));
+                    urun.Resim = Resim.FileName;
+                }
                 db.Update(urun);
                 return RedirectToAction("Index");
             }
+            ViewBag.KategoriId = new SelectList(kategoriManager.GetAll(), "Id", "KategoriAdi", urun.KategoriId);
+            ViewBag.MarkaId = new SelectList(marka.GetAll(), "Id", "MarkaAdi", urun.MarkaId);
             return View(urun);
         }
 

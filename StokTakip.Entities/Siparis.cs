@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace StokTakip.Entities
 {
@@ -13,5 +14,6 @@ namespace StokTakip.Entities
         public int UrunId { get; set; }
         public DateTime SiparisTarihi { get; set; }
         public DateTime TeslimatTarihi { get; set; }
+        public virtual List<Urun> Urunler { get; set; }
     }
 }

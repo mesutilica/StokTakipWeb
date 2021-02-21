@@ -1,113 +1,108 @@
-﻿using System;
-using System.Net;
+﻿using System.Net;
 using System.Web.Mvc;
 using StokTakip.BL;
 using StokTakip.Entities;
 
 namespace StokTakip.MvcWebUI.Areas.Admin.Controllers
 {
-    public class KategoriController : Controller
+    public class SiparisController : Controller
     {
-        //private StokTakipMvcWebUIContext db = new StokTakipMvcWebUIContext();
-        KategoriManager db = new KategoriManager();
-        // GET: Admin/Kategori
+        private SiparisManager db = new SiparisManager();
+        private UrunManager urun = new UrunManager();
+        // GET: Admin/Siparis
         public ActionResult Index()
         {
             return View(db.GetAll());
         }
 
-        // GET: Admin/Kategoris/Details/5
+        // GET: Admin/Siparis/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Kategori kategori = db.Get(id.Value);
-            if (kategori == null)
+            Siparis siparis = db.Get(id.Value);
+            if (siparis == null)
             {
                 return HttpNotFound();
             }
-            return View(kategori);
+            return View(siparis);
         }
 
-        // GET: Admin/Kategoris/Create
+        // GET: Admin/Siparis/Create
         public ActionResult Create()
         {
+            ViewBag.UrunId = new SelectList(urun.GetAll(), "Id", "UrunAdi");
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,KategoriAdi,KategoriAciklamasi,EklenmeTarihi,Aktif")] Kategori kategori)
+        public ActionResult Create([Bind(Include = "Id,MusteriAdi,MusteriSoyadi,Ulke,Adres,SiparisNo,UrunId,SiparisTarihi,TeslimatTarihi")] Siparis siparis)
         {
             if (ModelState.IsValid)
             {
-                kategori.EklenmeTarihi = DateTime.Now;
-                db.Add(kategori);
+                db.Add(siparis);
                 return RedirectToAction("Index");
             }
-
-            return View(kategori);
+            ViewBag.UrunId = new SelectList(urun.GetAll(), "Id", "UrunAdi");
+            return View(siparis);
         }
 
-        // GET: Admin/Kategoris/Edit/5
+        // GET: Admin/Siparis/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Kategori kategori = db.Get(id.Value);
-            if (kategori == null)
+            Siparis siparis = db.Get(id.Value);
+            if (siparis == null)
             {
                 return HttpNotFound();
             }
-            return View(kategori);
+            ViewBag.UrunId = new SelectList(urun.GetAll(), "Id", "UrunAdi", siparis.UrunId);
+            return View(siparis);
         }
 
-        // POST: Admin/Kategoris/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,KategoriAdi,KategoriAciklamasi,EklenmeTarihi,Aktif")] Kategori kategori)
+        public ActionResult Edit([Bind(Include = "Id,MusteriAdi,MusteriSoyadi,Ulke,Adres,SiparisNo,UrunId,SiparisTarihi,TeslimatTarihi")] Siparis siparis)
         {
             if (ModelState.IsValid)
             {
-                db.Update(kategori);
-                
+                db.Update(siparis);
                 return RedirectToAction("Index");
             }
-            return View(kategori);
+            ViewBag.UrunId = new SelectList(urun.GetAll(), "Id", "UrunAdi", siparis.UrunId);
+            return View(siparis);
         }
 
-        // GET: Admin/Kategoris/Delete/5
+        // GET: Admin/Siparis/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Kategori kategori = db.Get(id.Value);
-            if (kategori == null)
+            Siparis siparis = db.Get(id.Value);
+            if (siparis == null)
             {
                 return HttpNotFound();
             }
-            return View(kategori);
+            return View(siparis);
         }
 
-        // POST: Admin/Kategoris/Delete/5
+        // POST: Admin/Siparis/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Kategori kategori = db.Get(id);
-            db.Delete(kategori.Id);
-            
+            Siparis siparis = db.Get(id);
+            db.Delete(siparis.Id);
             return RedirectToAction("Index");
         }
 
-        
     }
 }
