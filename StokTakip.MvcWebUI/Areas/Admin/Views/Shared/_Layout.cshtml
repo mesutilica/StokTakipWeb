@@ -1,4 +1,11 @@
-﻿<!DOCTYPE html>
+﻿@{
+    //Session nesnesi c# ta oturum bilgilerini tutmamızı sağlar
+    if (Session["admin"] == null) //Eğer session boşsa, yani üye giriş yapmamışsa veya session patlamışsa
+    {
+        Response.Redirect("/Admin/Login");//Sayfayı admin giriş sayfasına yönlendir
+    }
+ }
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />

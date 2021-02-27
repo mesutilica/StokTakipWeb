@@ -10,6 +10,10 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Admin Giriş</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        form { display: flex; justify-content: center; align-items: center; }
+    </style>
 </head>
 <body>
     @Scripts.Render("~/bundles/jquery")
@@ -19,31 +23,32 @@
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
+        <div id="form">
+            <div class="form-horizontal">
+                <h4>Admin Üye Girişi</h4>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-        <div class="form-horizontal">
-            <h4>Admin Üye Girişi</h4>
-            <hr />
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    </div>
                 </div>
-            </div>
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.KullaniciSifre, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.KullaniciSifre, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.KullaniciSifre, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.KullaniciSifre, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.KullaniciSifre, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.KullaniciSifre, "", new { @class = "text-danger" })
+                    </div>
                 </div>
-            </div>
 
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Giriş" class="btn btn-default" />
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Giriş" class="btn btn-default" />
+                    </div>
                 </div>
             </div>
         </div>
