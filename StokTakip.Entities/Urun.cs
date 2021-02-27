@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 
 namespace StokTakip.Entities
 {
@@ -7,11 +8,15 @@ namespace StokTakip.Entities
         public int Id { get; set; }
         public int KategoriId { get; set; }
         public int MarkaId { get; set; }
+        [DisplayName("Ürün Adı")]
         public string UrunAdi { get; set; }
+        [DisplayName("Ürün Açıklaması")]
         public string UrunAciklamasi { get; set; }
         public DateTime EklenmeTarihi { get; set; }
+        [DisplayName("Fiyat")]
         public decimal UrunFiyati { get; set; }
         public int Kdv { get; set; }
+        [DisplayName("Stok")]
         public int StokMiktari { get; set; }
         public bool Aktif { get; set; }
         public string Resim { get; set; }

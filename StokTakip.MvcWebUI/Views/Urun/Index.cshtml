@@ -1,0 +1,18 @@
+﻿@model IEnumerable<StokTakip.Entities.Urun>
+
+<div class="container">
+    <div class="row">
+
+        @foreach (var urun in Model)
+        {
+            <div class="col-md-4">
+                <h2>@urun.UrunAdi</h2>
+                <p>
+                    <img src="~/Img/Urunler/@urun.Resim" alt="Resim yok" class="img-thumbnail" />
+                </p>
+                <p><a class="btn btn-default" href="/Urun/Detay/@urun.Id">İncele &raquo;</a></p>
+            </div>
+        }
+
+    </div>
+</div>

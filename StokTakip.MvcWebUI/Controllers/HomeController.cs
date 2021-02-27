@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StokTakip.BL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,9 +9,10 @@ namespace StokTakip.MvcWebUI.Controllers
 {
     public class HomeController : Controller
     {
+        private UrunManager db = new UrunManager();
         public ActionResult Index()
         {
-            return View();
+            return View(db.GetAll());//sayfa ön yüzü olan viewa urun manager(db) aracılığıyla veritabanından çektiğimiz ürün listesini gönder
         }
 
         public ActionResult About()

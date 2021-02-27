@@ -1,9 +1,12 @@
-﻿namespace StokTakip.Entities
+﻿using System.ComponentModel;
+
+namespace StokTakip.Entities
 {
     public class Kullanici : IEntity
     {
         public int Id { get; set; }
         public string KullaniciAdi { get; set; }
+        [DisplayName("Şifre")]
         public string KullaniciSifre { get; set; }
         public string Email { get; set; }
         public string Adi { get; set; }
