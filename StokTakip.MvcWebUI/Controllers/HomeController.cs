@@ -10,9 +10,15 @@ namespace StokTakip.MvcWebUI.Controllers
     public class HomeController : Controller
     {
         private UrunManager db = new UrunManager();
+        private KategoriManager kategoriManager = new KategoriManager();
         public ActionResult Index()
         {
-            return View(db.GetAll());//sayfa ön yüzü olan viewa urun manager(db) aracılığıyla veritabanından çektiğimiz ürün listesini gönder
+            return View(db.List(u => u.Aktif == true && u.Anasayfa == true));//sayfa ön yüzü olan viewa urun manager(db) aracılığıyla veritabanından çektiğimiz ürün listesini gönder
+        }
+
+        public PartialViewResult _UstKategoriler()
+        {
+            return PartialView(kategoriManager.GetAll());
         }
 
         public ActionResult About()

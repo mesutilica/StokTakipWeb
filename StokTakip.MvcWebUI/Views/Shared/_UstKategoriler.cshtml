@@ -1,0 +1,36 @@
+﻿@model IEnumerable<StokTakip.Entities.Kategori>
+
+@{
+    var seciliKategori = Url.RequestContext.RouteData.Values["id"];
+
+    foreach (var item in Model)
+    {
+        if (seciliKategori != null)//eğer anasayfa dışında bir kategoriye tıklanmışsa
+        {
+            if (item.Id == int.Parse(seciliKategori.ToString()))
+            {
+                <li>
+                    <a href="/Urun/Index/@item.Id" class="active">
+                        @item.KategoriAdi
+                    </a>
+                </li>
+            }
+            else
+            {
+                <li>
+                    <a href="/Urun/Index/@item.Id">
+                        @item.KategoriAdi
+                    </a>
+                </li>
+            }
+        }
+        else
+        {
+            <li>
+                <a href="/Urun/Index/@item.Id">
+                    @item.KategoriAdi
+                </a>
+            </li>
+        }
+    }
+}

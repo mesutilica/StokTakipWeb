@@ -85,7 +85,7 @@ namespace StokTakip.MvcWebUI.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Urun urun, HttpPostedFileBase Resim)
+        public ActionResult Edit(Urun urun, HttpPostedFileBase Resim, string resmiSil)
         {
             if (ModelState.IsValid)
             {
@@ -95,6 +95,10 @@ namespace StokTakip.MvcWebUI.Areas.Admin.Controllers
                     var fileName = Path.GetFileName(Resim.FileName);
                     Resim.SaveAs(Path.Combine(directory, fileName));
                     urun.Resim = Resim.FileName;
+                }
+                if (resmiSil == "on")
+                {
+                    urun.Resim = null;
                 }
                 db.Update(urun);
                 return RedirectToAction("Index");

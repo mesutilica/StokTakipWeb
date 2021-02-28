@@ -19,6 +19,7 @@ namespace StokTakip.Entities
         [DisplayName("Stok")]
         public int StokMiktari { get; set; }
         public bool Aktif { get; set; }
+        public bool Anasayfa { get; set; }
         public string Resim { get; set; }
         public virtual Kategori Kategori { get; set; }//urun sınıfı ile kategori sınıfı arasında bire bir ilişki kurduk
         public virtual Marka Marka { get; set; }

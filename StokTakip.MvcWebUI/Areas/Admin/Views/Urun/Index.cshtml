@@ -9,7 +9,7 @@
 <p>
     @Html.ActionLink("Yeni Ekle", "Create")
 </p>
-<table class="table">
+<table class="table table-hover table-striped">
     <tr>
         <th>
             Ürün Kategorisi
@@ -34,6 +34,9 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Aktif)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Anasayfa)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Resim)
@@ -67,6 +70,9 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Aktif)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Anasayfa)
             </td>
             <td>
                 <img src="~/Img/Urunler/@Html.DisplayFor(modelItem => item.Resim)" alt="Resim Yok" height="50" />

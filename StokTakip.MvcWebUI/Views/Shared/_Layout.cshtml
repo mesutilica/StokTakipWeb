@@ -20,8 +20,22 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Anasayfa", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Ürünlerimiz", "Index", "Urun")</li>
+                    <li>@Html.ActionLink("Anasayfa", "Index", "Home")</li>                    
+
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            Ürünlerimiz
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                            @Html.Action("_UstKategoriler", "Home")
+                            <li role="separator" class="divider"></li>
+                            <li>
+                                <a href="/Urun">Tüm Ürünler</a>
+                            </li>
+                        </ul>
+                    </li>
+
                     <li>@Html.ActionLink("Hakkımızda", "About", "Home")</li>
                     <li>@Html.ActionLink("İletişim", "Contact", "Home")</li>
                 </ul>
