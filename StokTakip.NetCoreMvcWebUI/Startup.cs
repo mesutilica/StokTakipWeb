@@ -27,6 +27,7 @@ namespace StokTakip.NetCoreMvcWebUI
         {
             services.AddControllersWithViews();
             services.AddRazorPages();
+            services.AddSession();
             services.AddDbContext<DatabaseContext>(options => options.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=StokTakipWeb;Trusted_Connection=True;MultipleActiveResultSets=true"));
         }
 
@@ -48,6 +49,7 @@ namespace StokTakip.NetCoreMvcWebUI
             app.UseStaticFiles();
 
             app.UseRouting();
+            app.UseSession();
 
             app.UseAuthorization();
             app.UseAuthorization();

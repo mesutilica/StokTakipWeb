@@ -1,17 +1,33 @@
-﻿<!DOCTYPE html>
+﻿@{
+    //Session nesnesi c# ta oturum bilgilerini tutmamızı sağlar
+    var sessionName = new Byte[20];
+    bool nameOK = Context.Session.TryGetValue("admin", out sessionName);
+
+    if (!nameOK)
+    {
+        Context.Response.Redirect("/Admin/Login");
+    }
+    /*else
+    {
+        string result = System.Text.Encoding.UTF8.GetString(sessionName);
+        <p> @result</p>
+    }*/
+
+}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - StokTakip.NetCoreMvcWebUI</title>
+    <title>@ViewData["Title"] - StokTakip.NetCore Admin</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">StokTakip.NetCoreMvcWebUI</a>
+                <a class="navbar-brand" asp-area="Admin" asp-controller="Home" asp-action="Index">StokTakip.NetCore Admin</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -19,10 +35,22 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-white" asp-area="Admin" asp-controller="Kategori" asp-action="Index">Kategori Yönetimi</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link text-white" asp-area="Admin" asp-controller="Marka" asp-action="Index">Marka Yönetimi</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-area="Admin" asp-controller="Urun" asp-action="Index">Ürün Yönetimi</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-area="Admin" asp-controller="Siparis" asp-action="Index">Sipariş Yönetimi</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-area="Admin" asp-controller="Kullanici" asp-action="Index">Kullanıcı Yönetimi</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-area="Admin" asp-controller="Login" asp-action="Logout">Çıkış</a>
                         </li>
                     </ul>
                 </div>

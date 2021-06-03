@@ -10,10 +10,10 @@ namespace Data
         public DbSet<Kullanici> Kullanici { get; set; }
         public DbSet<Marka> Marka { get; set; }
         public DbSet<Siparis> Siparis { get; set; }
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        /*protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-        }
+        }*/
         public DatabaseContext(DbContextOptions<DatabaseContext> options) : base(options)
         {
 
