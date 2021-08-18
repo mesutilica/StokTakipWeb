@@ -49,10 +49,10 @@ namespace StokTakip.NetCoreMvcWebUI
             app.UseStaticFiles();
 
             app.UseRouting();
-            app.UseSession();
+            app.UseSession();//session kullan
 
             app.UseAuthorization();
-            app.UseAuthorization();
+            app.UseAuthentication();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

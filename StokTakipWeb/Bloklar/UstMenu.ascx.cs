@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace StokTakipWeb.Bloklar
 {
@@ -16,8 +11,9 @@ namespace StokTakipWeb.Bloklar
 
         protected void LbCikis_Click(object sender, EventArgs e)
         {
-            Session["admin"] = null; //session admin nesnesini boşalt ve çıkış yap
-
+            //Session["admin"] = null; //session admin nesnesini boşalt ve çıkış yap
+            //Session.Remove("admin");
+            System.Web.Security.FormsAuthentication.SignOut();
             Response.Redirect("/Admin/Giris.aspx", true);//Sayfayı admin giriş sayfasına yönlendir
         }
     }

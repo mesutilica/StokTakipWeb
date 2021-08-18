@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -27,7 +28,36 @@ namespace StokTakipWeb
             else//kullanıcı varsa
             {
                 Session["admin"] = kullanici;//Session["admin"] e bulunan kullanıcıyı yükle
-                Response.Redirect("Default.aspx");//sayfayı Default.aspx e yönlendir
+                //Response.Redirect("Default.aspx");//sayfayı Default.aspx e yönlendir
+
+                FormsAuthentication.SetAuthCookie(kullanici.KullaniciAdi, true);
+
+                FormsAuthenticationTicket ticket1 =
+                   new FormsAuthenticationTicket(
+                        1,                              // version
+                        kullanici.KullaniciAdi,        // get username  from the form
+                        DateTime.Now,                 // issue time is now
+                        DateTime.Now.AddMinutes(30), // expires in 10 minutes
+                        true,                       // cookie is not persistent
+                        "admin"                    // role assignment is stored in userData
+                        );
+                HttpCookie cookie1 = new HttpCookie(
+                  FormsAuthentication.FormsCookieName,
+                  FormsAuthentication.Encrypt(ticket1));
+                Response.Cookies.Add(cookie1);
+
+                // 4. Do the redirect. 
+                String returnUrl1;
+                // the login is successful
+                if (Request.QueryString["ReturnUrl"] == null)
+                {
+                    returnUrl1 = "Default.aspx";
+                }
+                else
+                {
+                    returnUrl1 = Request.QueryString["ReturnUrl"];
+                }
+                Response.Redirect(returnUrl1);
             }
             //lblMesaj.Text = "Hoşgeldin " + txtKullaniciAdi.Text;
             

@@ -25,7 +25,7 @@
             <asp:Parameter Name="original_Id" Type="Int32" />
         </UpdateParameters>
                 </asp:SqlDataSource>
-    <ajaxToolkit:TabContainer ID="TabContainer1" runat="server" ActiveTabIndex="0" Width="100%">
+    <ajaxToolkit:TabContainer ID="TabContainer1" runat="server" ActiveTabIndex="1" Width="100%">
         <ajaxToolkit:TabPanel runat="server" HeaderText="Kategoriler" ID="TabPanel1">
             <ContentTemplate>
                 <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Id" DataSourceID="SqlDataSource1" AllowPaging="True" AllowSorting="True" CellPadding="4" ForeColor="#333333" GridLines="None">

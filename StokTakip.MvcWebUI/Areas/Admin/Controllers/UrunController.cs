@@ -12,13 +12,13 @@ namespace StokTakip.MvcWebUI.Areas.Admin.Controllers
 {
     public class UrunController : Controller
     {
-        private UrunManager db = new UrunManager();
+        private UrunManager manager = new UrunManager();
         private KategoriManager kategoriManager = new KategoriManager();
         private MarkaManager marka = new MarkaManager();
         // GET: Admin/Urun
         public ActionResult Index()
         {
-            return View(db.GetAll());
+            return View(manager.GetAll());
         }
 
         // GET: Admin/Urun/Details/5
@@ -28,7 +28,7 @@ namespace StokTakip.MvcWebUI.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Urun urun = db.Get(id.Value);
+            Urun urun = manager.Get(id.Value);
             if (urun == null)
             {
                 return HttpNotFound();
@@ -58,7 +58,7 @@ namespace StokTakip.MvcWebUI.Areas.Admin.Controllers
                     urun.Resim = Resim.FileName;
                 }
                 urun.EklenmeTarihi = DateTime.Now;
-                db.Add(urun);
+                manager.Add(urun);
                 return RedirectToAction("Index");
             }
             ViewBag.KategoriId = new SelectList(kategoriManager.GetAll(), "Id", "KategoriAdi");
@@ -73,7 +73,7 @@ namespace StokTakip.MvcWebUI.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Urun urun = db.Get(id.Value);
+            Urun urun = manager.Get(id.Value);
             if (urun == null)
             {
                 return HttpNotFound();
@@ -100,7 +100,7 @@ namespace StokTakip.MvcWebUI.Areas.Admin.Controllers
                 {
                     urun.Resim = null;
                 }
-                db.Update(urun);
+                manager.Update(urun);
                 return RedirectToAction("Index");
             }
             ViewBag.KategoriId = new SelectList(kategoriManager.GetAll(), "Id", "KategoriAdi", urun.KategoriId);
@@ -115,7 +115,7 @@ namespace StokTakip.MvcWebUI.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Urun urun = db.Get(id.Value);
+            Urun urun = manager.Get(id.Value);
             if (urun == null)
             {
                 return HttpNotFound();
@@ -128,8 +128,8 @@ namespace StokTakip.MvcWebUI.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Urun urun = db.Get(id);
-            db.Delete(urun.Id);
+            Urun urun = manager.Get(id);
+            manager.Delete(urun.Id);
             return RedirectToAction("Index");
         }
 
